@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ирина Михайлова, риелтор</title>
 <meta name="description" content="Ирина Михайлова: продажа квартир, комнат и долей в Москве и Московской области, в том числе с залогом, долгами и ограничениями. Первая консультация бесплатно.">
-<meta name="robots" content="noindex">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +105,10 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .hc-more:hover span{transform:translateY(4px)}
 
 /* отзывы: вводная часть */
-.rev{padding:clamp(40px,5vw,72px) 0 0;position:relative}
+.rev{padding:clamp(40px,5vw,72px) 0 0;position:relative;background:
+  repeating-linear-gradient(125deg, rgba(62,76,59,.045) 0 1px, transparent 1px 44px),
+  linear-gradient(180deg, rgba(228,234,185,.28) 0%, rgba(245,243,237,.65) 48%, rgba(239,234,218,.45) 100%)}
+.rev::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--olive),var(--coral),transparent);opacity:.35;pointer-events:none}
 .rev-head{display:grid;grid-template-columns:1.1fr .9fr;gap:12px clamp(24px,5vw,80px);align-items:end}
 .rev-head h2{grid-column:1;margin-top:10px}
 .rev-head .kicker{grid-column:1}
@@ -117,14 +119,11 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .scores a:hover{border-color:var(--olive)}
 
 .themes{margin-top:clamp(28px,4vw,48px);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.th a{display:flex;flex-direction:column;gap:12px;height:100%;padding:20px 22px;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 1px 2px rgba(37,40,36,.04);transition:box-shadow .25s,transform .25s,border-color .25s}
+.th a{display:flex;align-items:center;height:100%;padding:22px 24px;text-decoration:none;background:#fff;border:1px solid var(--line);border-left:4px solid var(--olive);border-radius:var(--r);box-shadow:0 1px 2px rgba(37,40,36,.04);transition:box-shadow .25s,transform .25s,border-color .25s}
+.th:nth-child(3n+2) a{border-left-color:var(--coral)}
+.th:nth-child(3n) a{border-left-color:#7E9261}
 .th a:hover{transform:translateY(-3px);box-shadow:0 14px 30px -10px rgba(37,40,36,.25);border-color:rgba(37,40,36,.22)}
-.th-l{align-self:flex-start;font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:8px;background:var(--lime);color:var(--olive-deep)}
-.th:nth-child(3n+2) .th-l{background:var(--coral-t);color:#8A2D10}
-.th:nth-child(3n) .th-l{background:#D5DFC4}
-.th-q{font-size:1.1rem;line-height:1.45;font-weight:500}
-.th-s{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted)}
-.th-s .av{width:32px;height:32px;font-size:.85rem}.th-s .av svg{width:18px;height:18px}
+.th-q{font-size:1.08rem;line-height:1.5;font-weight:500}
 
 /* фильтры */
 .fbar{position:sticky;top:var(--hdr);z-index:20;margin-top:clamp(36px,5vw,64px);padding:12px 0;background:linear-gradient(var(--milk) 85%,rgba(245,243,237,0));min-width:0}
@@ -138,6 +137,70 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .fchip:hover{border-color:var(--olive)}
 .fchip[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:#fff}
 .fcount{flex:none;margin-left:auto;font-size:.88rem;color:var(--muted);white-space:nowrap}
+
+
+/* кейсы */
+.cases{padding:clamp(32px,4.5vw,56px) 0 0}
+.cases-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 20px}
+.cases-head h2{font-size:clamp(1.85rem,3.6vw,2.9rem)}
+.case-controls{display:flex;align-items:center;gap:10px}
+.case-hint{display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:600;color:var(--olive);background:var(--lime-t);padding:6px 12px;border-radius:999px;border:1px solid rgba(62,76,59,.18)}
+.case-arrow{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--graphite);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.case-arrow:hover:not(:disabled){background:var(--olive);border-color:var(--olive);color:#fff;transform:translateY(-1px)}
+.case-arrow:disabled{opacity:.35;cursor:default}
+.case-arrow svg{width:18px;height:18px}
+.case-fbar{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cfchip{min-height:38px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--graphite);font:600 .9rem var(--sans);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.cfchip:hover{border-color:var(--olive)}
+.cfchip[aria-pressed="true"]{background:var(--olive);border-color:var(--olive);color:#fff}
+.case-tracker{margin-left:auto;display:flex;align-items:center;gap:10px}
+.case-dots{display:inline-flex;align-items:center;gap:6px}
+.case-dot{width:10px;height:10px;padding:0;border:0;border-radius:999px;background:rgba(37,40,36,.22);cursor:pointer;transition:width .25s,background .25s}
+.case-dot[aria-current="true"]{width:28px;background:var(--coral)}
+.case-pos{font-size:.88rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.case-track{margin-top:16px;display:flex;align-items:stretch;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:2px 2px 14px;scrollbar-width:thin;scrollbar-color:rgba(62,76,59,.35) transparent}
+.case-track::-webkit-scrollbar{height:5px}
+.case-track::-webkit-scrollbar-thumb{background:rgba(62,76,59,.35);border-radius:999px}
+.case-card{flex:0 0 min(860px,88%);scroll-snap-align:start;display:flex;flex-direction:column;padding:clamp(18px,2.4vw,26px) clamp(20px,2.8vw,30px);background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 28px -22px rgba(37,40,36,.35);transition:box-shadow .4s,border-color .4s}
+.case-card[hidden]{display:none}
+.case-card.is-active-target{border-color:var(--coral);box-shadow:0 0 0 3px var(--coral-t),0 14px 32px -20px rgba(37,40,36,.4)}
+.case-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
+.case-tag{display:inline-block;font-size:.76rem;font-weight:700;padding:3px 10px;border-radius:7px;background:var(--coral-t);color:#8A2D10}
+.case-card:nth-child(even) .case-tag{background:var(--lime);color:var(--olive-deep)}
+.case-loc{font-size:.84rem;font-weight:600;color:var(--muted)}
+.case-title{margin-top:10px;font-size:clamp(1.18rem,1.95vw,1.58rem);line-height:1.18;font-weight:800;letter-spacing:-.025em;max-width:44ch}
+.case-diff{margin-top:6px;font-size:.96rem;line-height:1.45;color:var(--olive-deep)}
+.case-diff b{font-weight:800}
+.case-metrics{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%;grid-auto-flow:column}
+.case-metrics div{min-width:0;padding:10px 14px;border-radius:12px;background:var(--milk);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between}
+.case-metrics dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--muted)}
+.case-metrics dd{margin:2px 0 0;font-size:clamp(1.05rem,1.6vw,1.32rem);font-weight:800;letter-spacing:-.02em;color:var(--graphite)}
+.case-story{margin-top:14px;display:grid;gap:8px;max-width:74ch}
+.case-story p{font-size:.94rem;line-height:1.5;color:#2F342D}
+.case-story b{color:var(--graphite)}
+.case-story ul{margin:4px 0 2px 18px;list-style:disc;display:grid;gap:5px}
+.case-story li{font-size:.93rem;line-height:1.48;color:#2F342D}
+.case-story li::marker{color:var(--olive)}
+.case-story-extra{display:none}
+.case-card.is-expanded .case-story-extra{display:grid;gap:8px}
+.case-expand{margin-top:10px;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0;background:none;border:0;font:700 .92rem var(--sans);color:var(--olive);cursor:pointer}
+.case-expand:hover{color:var(--coral)}
+.case-expand svg{width:18px;height:18px;transition:transform .25s}
+.case-card.is-expanded .case-expand svg{transform:rotate(180deg)}
+.case-next{margin-top:12px;padding:10px 14px;border-radius:12px;background:var(--lime-t);border:1px solid rgba(62,76,59,.2);font-size:.9rem;line-height:1.42;color:var(--olive-deep)}
+.case-next button,.case-next a{background:none;border:0;padding:0;font:700 .9rem var(--sans);color:var(--coral-d);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.case-next button:hover,.case-next a:hover{color:var(--coral)}
+.case-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.case-note{font-size:.82rem;color:var(--muted)}
+.case-foot .tel{font-size:1.05rem}
+@media (max-width:720px){
+  .case-card{flex:0 0 92%}
+  .case-metrics{gap:8px}
+  .case-metrics div{padding:8px 10px}
+  .case-metrics dd{font-size:1rem}
+  .case-hint{display:none}
+  .case-pos{display:none}
+}
 
 /* четыре блока отзывов: у каждого свой фон */
 .part{padding:clamp(48px,7vw,96px) 0 clamp(48px,7vw,88px)}
@@ -212,7 +275,7 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .bridge-c b{display:block;font-size:1.2rem;color:#fff;margin-bottom:6px;font-weight:700}
 
 /* об Ирине */
-.about{padding:clamp(72px,10vw,140px) 0 clamp(56px,8vw,110px)}
+.about{padding:clamp(72px,10vw,140px) 0 clamp(56px,8vw,110px);position:relative;background:repeating-linear-gradient(-35deg, rgba(37,40,36,.025) 0 1px, transparent 1px 56px), var(--milk)}
 .about-grid{display:grid;grid-template-columns:.5fr 1.5fr;gap:clamp(32px,6vw,96px);align-items:center}
 .arch{position:relative;max-width:290px;margin-inline:auto}
 .arch::before{content:"";position:absolute;inset:6% -9% -5% 10%;background:var(--lime);border-radius:999px 999px 24px 24px;transform:rotate(3deg)}
@@ -240,8 +303,8 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .tcard .btn{align-self:flex-start;margin-top:auto}
 /* услуги */
 .services{padding:clamp(40px,6vw,80px) 0 clamp(64px,8vw,110px)}
-.svc-grid{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);align-items:stretch}
-.svc{padding:clamp(26px,3vw,40px);border-radius:var(--r)}
+.svc-grid{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px);align-items:stretch}
+.svc{display:flex;flex-direction:column;padding:clamp(24px,2.6vw,34px);border-radius:var(--r)}
 .svc h3{font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.1;font-weight:800;letter-spacing:-.03em;margin:10px 0 14px;text-wrap:balance}
 .svc.a{background:#fff;border:1px solid var(--line);box-shadow:0 14px 34px -22px rgba(37,40,36,.4)}
 .svc.b{background:var(--olive);color:var(--milk)}
@@ -250,7 +313,7 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .svc li{position:relative;padding-left:28px}
 .svc li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--coral-t);box-shadow:inset 0 0 0 4px var(--coral)}
 .svc.b li::before{background:transparent;box-shadow:inset 0 0 0 4px var(--lime)}
-.svc .what{margin-top:20px;padding:14px 16px;border-radius:12px;background:var(--lime-t);font-size:.98rem}
+.svc .what{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--lime-t);font-size:.96rem}
 .svc.b .what{background:rgba(228,234,185,.12);color:#E6EAD8}
 .svc .what b{display:block;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;margin-bottom:4px;color:var(--olive)}
 .svc.b .what b{color:var(--lime)}
@@ -261,7 +324,7 @@ h1 em{font-size:1.1em;color:var(--olive);letter-spacing:-.015em;font-weight:600;
 .price p{max-width:34em;color:#CFD3C6}
 
 /* как проходит */
-.proc{padding:clamp(48px,7vw,96px) 0;background:var(--lime-t)}
+.proc{padding:clamp(48px,7vw,96px) 0;position:relative;background:repeating-linear-gradient(90deg, rgba(62,76,59,.04) 0 1px, transparent 1px 64px), var(--lime-t)}
 .steps{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:s}
 .step{counter-increment:s;padding:20px 20px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 1px 2px rgba(37,40,36,.05)}
 .step:nth-child(even){margin-top:26px}
@@ -348,6 +411,26 @@ details .ans p+p{margin-top:10px}
   .hc-2{transform:rotate(1.6deg)!important}
   .rv:hover,.th a:hover{transform:none}
 }
+
+/* оглавление / содержание */
+.toc-sec{padding:10px 0 clamp(24px,3.5vw,40px)}
+.toc-box{padding:22px 26px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 26px -22px rgba(37,40,36,.35)}
+.toc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;margin-bottom:16px}
+.toc-title{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;color:var(--graphite)}
+.toc-sub{font-size:.88rem;color:var(--muted)}
+.toc-list{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;counter-reset:toc}
+.toc-list li{counter-increment:toc}
+.toc-list a{display:flex;align-items:flex-start;gap:10px;height:100%;padding:12px 14px;border-radius:12px;background:var(--milk);border:1px solid transparent;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.toc-list a::before{content:counter(toc,decimal-leading-zero);flex:none;font-size:.78rem;font-weight:800;color:var(--coral);padding-top:2px}
+.toc-list a:hover{background:var(--lime-t);border-color:rgba(62,76,59,.25);transform:translateY(-2px)}
+.toc-item-t{display:block;font-size:.95rem;font-weight:700;line-height:1.25;color:var(--graphite)}
+.toc-item-d{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:var(--muted)}
+@media (max-width:1060px){.toc-list{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.toc-box{padding:18px 18px}.toc-list{grid-template-columns:1fr;gap:8px}}
+
+.svc .what a,.svc .limits a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.svc .what a:hover,.svc .limits a:hover{color:var(--coral)}
+.svc.b .what a:hover,.svc.b .limits a:hover{color:var(--mark)}
 </style>
 </head>
 <body>
@@ -362,7 +445,7 @@ details .ans p+p{margin-top:10px}
   <div class="wrap">
     <a class="brand" href="#top">Ирина Михайлова<small>риелтор, Москва и область</small></a>
     <nav class="nav" aria-label="Разделы страницы">
-      <a href="#otzyvy">Отзывы</a><a href="#ob-irine">Обо мне</a><a href="#uslugi">Услуги</a><a href="#kak-rabotaem">Как работаем</a><a href="#voprosy">Вопросы</a>
+      <a href="#keisy">Кейсы</a><a href="#otzyvy">Отзывы</a><a href="#ob-irine">Обо мне</a><a href="#uslugi">Услуги</a><a href="#kak-rabotaem">Как работаем</a><a href="#voprosy">Вопросы</a>
     </nav>
     <a class="btn sm" href="tel:+79202353565"><svg aria-hidden="true"><use href="#phone"/></svg>+7 920 235-35-65</a>
   </div>
@@ -382,7 +465,7 @@ details .ans p+p{margin-top:10px}
         <a href="https://agencies.domclick.ru/agent/8252518/reviews" target="_blank" rel="noopener"><span class="stars" role="img" aria-label="5 звёзд из 5"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><b>5 из 5</b> на Домклике</a>
       </p>
       <h1 id="h1">Продать квартиру и <em>понимать каждый шаг</em></h1>
-      <p class="lead">Обычная продажа, залог, долги, аресты и запреты на регистрацию. Я беру организацию на себя: от оценки и показов до передачи объекта.</p>
+      <p class="lead">Обычная продажа, залог, долги, аресты и запреты на регистрацию. Беру организацию на себя и <mark>всегда работаю на результат</mark> — от оценки и показов до передачи объекта.</p>
       <div class="cta">
         <a class="btn" href="tel:+79202353565"><svg aria-hidden="true"><use href="#phone"/></svg>Позвонить мне</a>
         <a class="tel" href="tel:+79202353565">+7 920 235-35-65</a>
@@ -390,9 +473,302 @@ details .ans p+p{margin-top:10px}
       <p class="free"><b>Первая консультация бесплатно</b>, по телефону. Документы готовить не нужно.</p>
     </div>
     <div class="hero-r" id="heroCards">
-      <a class="hc hc-1" href="#rv-53685988"><span class="hc-top"><span class="av av-2" aria-hidden="true">М</span><span class="hc-by"><b>Мария С.</b><br>1 ноября 2026 · Циан</span></span><span class="hc-q">«мы успешно продали мою квартиру <mark>без банкротства</mark>, оставив значительную сумму на руках»</span><small class="hc-note">Результат конкретной сделки</small></a>
+      <a class="hc hc-1" href="#rv-53685988"><span class="hc-top"><span class="av av-2" aria-hidden="true">М</span><span class="hc-by"><b>Мария С.</b><br>1 ноября 2026 · Циан</span></span><span class="hc-q">«Менее чем за месяц Ирина смогла найти клиентов, и мы успешно продали мою квартиру <mark>без банкротства</mark>, оставив значительную сумму на руках»</span><small class="hc-note">Результат конкретной сделки</small></a>
 <a class="hc hc-2" href="#rv-21822328"><span class="hc-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><span class="hc-by"><b>Клиент Циана</b><br>13 мая 2026 · Циан</span></span><span class="hc-q">«<mark>разъяснения каждого шага</mark> помогли нам комфортно подготовиться к сделке»</span></a>
       <a class="hc-more" href="#otzyvy"><span aria-hidden="true">↓</span>Все отзывы</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- СОДЕРЖАНИЕ -->
+<nav class="toc-sec" aria-label="Содержание страницы">
+  <div class="wrap">
+    <div class="toc-box">
+      <div class="toc-head">
+        <p class="toc-title">Содержание страницы</p>
+        <p class="toc-sub">Быстрый переход к нужному разделу</p>
+      </div>
+      <ol class="toc-list">
+        <li><a href="#keisy"><span><span class="toc-item-t">Реальные кейсы</span><span class="toc-item-d">4 разбора сделок в цифрах</span></span></a></li>
+        <li><a href="#otzyvy"><span><span class="toc-item-t">Отзывы клиентов</span><span class="toc-item-d">Залог, продажа и покупка с Циана</span></span></a></li>
+        <li><a href="#strakhi"><span><span class="toc-item-t">Главные вопросы</span><span class="toc-item-d">О цене, комиссии и обычных квартирах</span></span></a></li>
+        <li><a href="#ob-irine"><span><span class="toc-item-t">Обо мне</span><span class="toc-item-d">Опыт с 2019 года, юрист и статус</span></span></a></li>
+        <li><a href="#uslugi"><span><span class="toc-item-t">Услуги и стоимость</span><span class="toc-item-d">Обычная продажа, залог и долги</span></span></a></li>
+        <li><a href="#kak-rabotaem"><span><span class="toc-item-t">Как проходит работа</span><span class="toc-item-d">Пять шагов от звонка до денег</span></span></a></li>
+        <li><a href="#voprosy"><span><span class="toc-item-t">Частые вопросы</span><span class="toc-item-d">Сроки, торги, заграница и оплата</span></span></a></li>
+        <li><a href="#kontakty"><span><span class="toc-item-t">Контакты</span><span class="toc-item-d">Телефон, MAX и часы связи</span></span></a></li>
+      </ol>
+    </div>
+  </div>
+</nav>
+
+<!-- КЕЙСЫ -->
+<section class="cases" id="keisy" aria-labelledby="h-cases">
+  <div class="wrap">
+    <div class="cases-head">
+      <div>
+        <p class="kicker">Реальные кейсы в цифрах</p>
+        <h2 id="h-cases" style="margin-top:6px">Как решаем <em>задачи клиентов</em></h2>
+      </div>
+      <div class="case-controls" aria-label="Листать кейсы">
+        <span class="case-hint" aria-hidden="true">Листайте вправо →</span>
+        <button class="case-arrow" type="button" id="casePrev" aria-label="Предыдущий кейс">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="case-arrow" type="button" id="caseNext" aria-label="Следующий кейс">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="case-fbar" role="group" aria-label="Фильтр кейсов">
+      <button class="cfchip" type="button" data-cf="all" aria-pressed="true">Все кейсы</button>
+      <button class="cfchip" type="button" data-cf="sell" aria-pressed="false">Продажа</button>
+      <button class="cfchip" type="button" data-cf="buy" aria-pressed="false">Покупка</button>
+      <button class="cfchip" type="button" data-cf="complex" aria-pressed="false">Сложные сделки</button>
+      <div class="case-tracker" aria-label="Прогресс просмотра кейсов">
+        <div class="case-dots" id="caseDots"></div>
+        <span class="case-pos" id="casePos">1 из 4</span>
+      </div>
+    </div>
+
+    <div class="case-track" id="caseTrack">
+      <!-- КЕЙС 1: СТАРТОВАЯ КВАРТИРА ЗА 3,5 МЛН -> ПРОДАЖА 5,8 МЛН -->
+      <article class="case-card" id="case-start-flip" data-tags="sell buy complex">
+        <div class="case-top">
+          <span class="case-tag">Продажа · Покупка · Сложная сделка</span>
+          <span class="case-loc">Москва и МО</span>
+        </div>
+
+        <h3 class="case-title">Как выбрать первую квартиру в ипотеку за 3,5 млн ₽, чтобы через год продать её на 2,3 млн ₽ дороже</h3>
+        <p class="case-diff">Чистый финансовый результат пары после всех расходов и переплаты по ипотеке — <mark>~1 950 000 ₽ за 1 год</mark>.</p>
+
+        <dl class="case-metrics">
+          <div>
+            <dt>Купили → Продали</dt>
+            <dd>3,5 → 5,8 млн ₽</dd>
+          </div>
+          <div>
+            <dt>Чистая прибыль</dt>
+            <dd><mark>~1,95 млн ₽</mark></dd>
+          </div>
+          <div>
+            <dt>Сделка с опекой</dt>
+            <dd>за 3 дня</dd>
+          </div>
+        </dl>
+
+        <div class="case-story">
+          <p><b>Ситуация:</b></p>
+          <ul>
+            <li>Год назад пара выбирала первую квартиру в ипотеку в бюджете 3,5 млн ₽ — нужен был <mark>ликвидный вариант сразу с ремонтом</mark>, чтобы не тратиться на отделку и быстро продать при расширении.</li>
+            <li>Спустя год потребовалось срочно высвободить капитал под новую покупку в долях за 9–9,5 млн ₽, но продажа забуксовала, на квартире висела ипотека, а сроки поджимали.</li>
+          </ul>
+          <p><b>Что сделали:</b></p>
+          <ul>
+            <li>На старте отобрали ликвидный объект с ремонтом за 3,5 млн ₽ с торгом (<mark>вложения в ремонт — 0 ₽</mark>).</li>
+            <li>Через год подключились к продаже, <mark>удержали цену 5,8 млн ₽ без торга вниз</mark>, за 3 дня провели сделку с опекой, сняли обременение и синхронизировали расчёты день в день под покупку следующей квартиры.</li>
+          </ul>
+          <p><b>Экономика сделки:</b></p>
+          <ul>
+            <li>Разница в цене: +2,3 млн ₽.</li>
+            <li>Расходы: 349 тыс. ₽ (149 тыс. ₽ переплата по ипотеке под 23% годовых, ~50 тыс. ₽ оформление, 150 тыс. ₽ сопровождение).</li>
+            <li>Итого: <mark>~1,95 млн ₽ чистыми на руках</mark>.</li>
+          </ul>
+        </div>
+
+        <div class="case-next">
+          <p><b>Продолжение истории клиентов:</b> как при очереди из 8 претендентов мы забрали для этой пары квартиру в 15 минутах от станции со скидкой 50 тыс. ₽ — <button type="button" data-go-case="case-zheleznodorozhny">перейти к следующему кейсу →</button></p>
+        </div>
+
+        <footer class="case-foot">
+          <span class="case-note">Результат относится к конкретной сделке</span>
+          <a class="tel" href="tel:+79202353565">Обсудить вашу стратегию</a>
+        </footer>
+      </article>
+
+      <!-- КЕЙС 2: ПОКУПКА В ЖЕЛЕЗНОДОРОЖНОМ -->
+      <article class="case-card" id="case-zheleznodorozhny" data-tags="buy complex">
+        <div class="case-top">
+          <span class="case-tag">Покупка · Сложная сделка</span>
+          <span class="case-loc">Центр Железнодорожного · МО</span>
+        </div>
+
+        <h3 class="case-title">Купили квартиру с ремонтом за 9,45 млн ₽ в центре Железнодорожного: торг при 8 претендентах и расчёты день в день</h3>
+        <p class="case-diff">Уложились в бюджет <mark>9,45 млн ₽ без вложений в ремонт</mark> — спустя месяц похожие варианты стоили уже 10,5 млн ₽.</p>
+
+        <dl class="case-metrics">
+          <div>
+            <dt>Цена покупки</dt>
+            <dd><mark>9,45 млн ₽</mark></dd>
+          </div>
+          <div>
+            <dt>Состояние объекта</dt>
+            <dd>с шикарным ремонтом</dd>
+          </div>
+          <div>
+            <dt>Аналоги на рынке сейчас</dt>
+            <dd><mark>10,5 млн ₽</mark></dd>
+          </div>
+        </dl>
+
+        <div class="case-story">
+          <p><b>Ситуация:</b></p>
+          <ul>
+            <li>После продажи прошлой квартиры за 5,8 млн ₽ пара 2 месяца сама искала однушку в долях в Одинцово, Мытищах и Красногорске в бюджете 9–9,5 млн ₽.</li>
+            <li>Подходящих вариантов с ремонтом не было, цены росли, а сроки покупки жёстко зависели от снятия ипотеки по прошлому объекту.</li>
+          </ul>
+          <p><b>Что сделали:</b></p>
+          <ul>
+            <li>Провели выездной обзор локаций и выбрали <mark>центр Железнодорожного (15 минут пешком до станции и Ольгинского лесопарка)</mark>.</li>
+            <li>Пока на рынке за 9,3 млн ₽ предлагали квартиры под капремонт, поймали свежее объявление со свежим ремонтом и балконом за 9,5 млн ₽.</li>
+            <li><mark>Приехали на просмотр с готовым договором аванса при 8 записанных претендентах</mark>, договорились о скидке 50 тыс. ₽ и провели сделку день в день с закрытием прошлой продажи.</li>
+          </ul>
+          <p><b>Итог:</b></p>
+          <ul>
+            <li>Купили готовую квартиру за 9,45 млн ₽ <mark>без стресса, срывов и расходов на ремонт</mark>.</li>
+            <li>Зашли в сделку до очередного скачка цен на 1 млн ₽.</li>
+          </ul>
+        </div>
+
+        <footer class="case-foot">
+          <span class="case-note">Результат относится к конкретной сделке</span>
+          <a class="tel" href="tel:+79202353565">Подобрать вариант под ваш бюджет</a>
+        </footer>
+      </article>
+
+      <!-- КЕЙС 3: МАЛАХОВКА -->
+      <article class="case-card" id="case-malakhovka" data-tags="sell complex">
+        <div class="case-top">
+          <span class="case-tag">Продажа · Сложная сделка</span>
+          <span class="case-loc">Малаховка · История одной непростой продажи</span>
+        </div>
+
+        <h3 class="case-title">Квартиру готовы были выкупить за 7,2 млн. Мы продали её за 8,99 млн без торга за 19 дней.</h3>
+        <p class="case-diff">Разница почти <mark>1,8 млн рублей</mark> (точно — <mark>1 790 000 ₽</mark>) по сравнению с предложением срочного выкупа.</p>
+
+        <dl class="case-metrics">
+          <div>
+            <dt>Срок до сделки</dt>
+            <dd><mark>19 дней</mark></dd>
+          </div>
+          <div>
+            <dt>Цена продажи</dt>
+            <dd>8 990 000 ₽</dd>
+          </div>
+          <div>
+            <dt>Разница с выкупом</dt>
+            <dd><mark>1 790 000 ₽</mark></dd>
+          </div>
+        </dl>
+
+        <div class="case-story">
+          <p>Иногда за продажей квартиры стоит гораздо больше, чем просто желание сменить жильё.</p>
+          <p>У мамы моей клиентки (на тот момент будущей) случился инсульт, и ради её лечения <mark>пришлось заложить собственную квартиру</mark>.</p>
+          <p>Мама нуждалась в постоянном уходе. Женщина не могла полноценно работать, хотя у неё большой профессиональный опыт и знание трёх иностранных языков. Одновременно нужно было выплачивать кредит, поэтому постепенно появились дополнительные займы и кредитные обязательства.</p>
+          <p>Квартиру с другим риэлтором выставили на продажу за 8 990 000 ₽, но <mark>прошло полтора месяца, результата не было</mark>, а проценты по кредитам не остановились!</p>
+          <div class="case-story-extra">
+            <p>Предыдущий риэлтор сделал фотографии и разместил объявление. На этом, по сути, работа остановилась. Покупатели не получали своевременной обратной связи, а сама собственница всё сильнее переживала из-за ситуации.</p>
+            <p>В какой-то момент женщина уже была готова обратиться к компании, которая занимается срочным выкупом недвижимости. Ей предложили <mark>около 7 200 000 ₽</mark> за квартиру, рыночная стоимость которой была значительно выше.</p>
+            <p><b>Разница почти 1,8 млн рублей.</b> Для человека, у которого и так накопилось много финансовых проблем, это была бы очень дорогая цена за срочное решение.</p>
+            <p><b>Что я сделала</b></p>
+            <p>Когда я узнала об этой ситуации, решила включиться в работу.</p>
+            <ol style="margin:4px 0 2px 20px;list-style:decimal;display:grid;gap:5px;font-size:.93rem;line-height:1.48;color:#2F342D">
+              <li>Мы оперативно встретились, я самостоятельно провела фотосъёмку квартиры и взяла объект в работу.</li>
+              <li>Сразу же проанализировала все кредиты и займы клиентки: <mark>где-то взяли кредитные каникулы</mark>, чтобы проценты капали меньше.</li>
+              <li>Практически сразу мне позвонил покупатель, который уже хотел приобрести эту квартиру через предыдущего риелтора. Но за месяц он так и не смог нормально связаться с ним: на звонки не отвечали, а возникшие вопросы по документам остались без понятных ответов.</li>
+              <li><mark>Покупатель был с наличными деньгами и готов к сделке.</mark> Мы восстановили контакт, проработали все вопросы по документам и организовали выход на сделку.</li>
+            </ol>
+            <p><b>Результаты:</b></p>
+            <p><mark>19 дней от начала нашей работы до сделки.</mark></p>
+            <ul>
+              <li>Цена продажи: <mark>8 990 000 ₽</mark>.</li>
+              <li><mark>Торга не было — не уступили ни рубля.</mark></li>
+              <li>Закрыли ипотечный кредит.</li>
+              <li>Погасили остальные кредитные обязательства.</li>
+              <li>После снятия обременения собственница получила оставшиеся деньги.</li>
+              <li>Покупатель купил полностью чистую квартиру.</li>
+            </ul>
+            <p>Вместо предложения срочного выкупа за 7,2 млн рублей квартира была продана за полную заявленную стоимость. <b>Разница <mark>1 790 000 ₽</mark>.</b></p>
+            <p><b>Почему я рассказываю эту историю?</b></p>
+            <p>Потому что продажа недвижимости — это не только фотографии, объявление и ожидание звонков. За каждым объектом стоит человек, его обстоятельства, планы и иногда очень непростая жизненная ситуация. В этой работе важно не просто найти покупателя. Важно вовремя отвечать на звонки, разбираться в документах, слышать клиента и доводить начатое до результата. Особенно, когда речь идёт про такие сложные объекты, где <mark>время = деньги фактически</mark>.</p>
+            <p>Для меня именно в этом и заключается ценность хорошей работы с недвижимостью.</p>
+          </div>
+          <button class="case-expand" type="button" aria-expanded="false">
+            <span>Читать полностью</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <footer class="case-foot">
+          <span class="case-note">Результат относится к конкретной сделке</span>
+          <a class="tel" href="tel:+79202353565">Разобрать похожий случай</a>
+        </footer>
+      </article>
+
+      <!-- КЕЙС 4: ДОЛГ 11 МЛН ₽, ИНВАЛИДНОСТЬ И АРЕСТ ПРИСТАВА -->
+      <article class="case-card" id="case-psb-11m" data-tags="sell complex">
+        <div class="case-top">
+          <span class="case-tag">Продажа · Сложная сделка</span>
+          <span class="case-loc">Промсвязьбанк · 2-комн. кв. 2005 г. у метро</span>
+        </div>
+
+        <h3 class="case-title">Долг 11 млн ₽, инвалидность после укуса клеща и арест пристава: как мы спасли квартиру и вернули деньги через суд.</h3>
+        <p class="case-diff">Квартиру продали за <mark>15,6 млн ₽</mark> (рыночный ориентир около 16 млн ₽), закрыли долг ~11 млн ₽ и вернули взысканные средства с пенями через суд.</p>
+
+        <dl class="case-metrics">
+          <div>
+            <dt>Продажа / рынок</dt>
+            <dd><mark>15,6 млн ₽</mark> (~16)</dd>
+          </div>
+          <div>
+            <dt>Долг / сбор</dt>
+            <dd>~11 млн / ~800 тыс. ₽</dd>
+          </div>
+          <div>
+            <dt>Срок поиска</dt>
+            <dd>1 <mark>неделя</mark></dd>
+          </div>
+        </dl>
+
+        <div class="case-story">
+          <p>Эта история началась с доверия, которое обернулось тяжёлым ударом. Женщина оформила квартиру в ипотеку по просьбе давней подруги-предпринимателя, у которой были большие долги. В квартире жили арендаторы, деньги шли мимо владелицы, а когда подошёл срок продления страховки, она не успела её оплатить. В пятницу уехала на дачу, её укусил энцефалитный клещ. Тяжёлые последствия привели к <mark>инвалидности 1-й группы</mark>, и ей было совсем не до платежей. Страхового возмещения не было из-за неоплаченной страховки, а <mark>ипотечный долг вырос до 11 млн ₽</mark>.</p>
+          <p><b>Сложностей было сразу несколько:</b></p>
+          <ul>
+            <li>Жёсткие рамки банка. После жёстких переговоров и давления нам дали <mark>всего неделю на добровольную продажу квартиры</mark>.</li>
+            <li>Квартиранты, которые не хотели съезжать. В квартире жила семья, платившая подруге, а не владелице, и выезжать добровольно не собиралась.</li>
+            <li>Долг и исполнительский сбор. Помимо ~11 млн ₽ долга по ипотеке, наложили исполнительский сбор в размере 7% от суммы долга — <mark>около 800 тыс. ₽</mark>.</li>
+            <li>Сбой при регистрации и арест пристава. Покупателя на квартиру за <mark>15,6 млн ₽</mark> (при рыночном ориентире около 16 млн ₽) я нашла за неделю. Покупатель закрывал долг через банк, но <mark>пристав наложил арест из-за исполнительского сбора с нарушением порядка</mark> (вместо положенного срока на добровольную оплату). Приостановка регистрации выяснилась через Росреестр.</li>
+          </ul>
+          <div class="case-story-extra">
+            <p>Когда мне передали эту историю через коллегу-риелтора, ситуация была критической: банк (Промсвязьбанк) не шёл на переговоры и, по ощущениям команды, уже нацелился на изъятие двухкомнатной квартиры 2005 года у метро. Сама владелица в силу состояния здоровья не могла вести такие процессы — мы оформили от неё доверенность.</p>
+            <p><b>Что мы сделали:</b></p>
+            <ul>
+              <li><mark>Добились от банка недельного срока на добровольную реализацию</mark> вместо жёсткого сценария отъёма квартиры.</li>
+              <li>Оперативно освободили квартиру от жильцов, провели уборку и <mark>за неделю нашли покупателя на 15,6 млн ₽</mark>.</li>
+              <li>Организовали погашение основного долга ~11 млн ₽ через банк с участием юриста, а также закрыли вопрос с исполнительским сбором (~800 тыс. ₽), чтобы разблокировать проведение сделки.</li>
+              <li>После прохождения сделки <mark>обратились в суд в связи с неправомерными действиями пристава и добились возврата взысканных средств с пенями</mark>.</li>
+            </ul>
+            <p><b>Итог для клиентки:</b></p>
+            <ul>
+              <li>Квартиру продали за <mark>15,6 млн ₽</mark> и закрыли ипотечный долг около 11 млн ₽.</li>
+              <li>Сделку довели до результата, а <mark>деньги по спорному исполнительному сбору вернули через суд с пенями</mark>.</li>
+              <li>Клиентка освободилась от долгового давления и готова публично подтвердить свой опыт.</li>
+            </ul>
+            <p>Когда ситуация кажется безнадёжной из-за долгов, позиции банка или ошибок на этапе регистрации, важно не опускать руки и действовать последовательно — от освобождения объекта до защиты прав в суде.</p>
+          </div>
+          <button class="case-expand" type="button" aria-expanded="false">
+            <span>Читать полностью</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <footer class="case-foot">
+          <span class="case-note">Результат относится к конкретной сделке</span>
+          <a class="tel" href="tel:+79202353565">Разобрать похожий случай</a>
+        </footer>
+      </article>
     </div>
   </div>
 </section>
@@ -413,12 +789,12 @@ details .ans p+p{margin-top:10px}
     </div>
     <h3 class="sr">За что клиенты хвалят меня</h3>
     <ul class="themes">
-<li class="th"><a href="#rv-markova"><span class="th-l">Объясняет простым языком</span><span class="th-q">«всё разъясняла <mark>доступным языком</mark>»</span><span class="th-s"><span class="av av-1" aria-hidden="true">Е</span><span>Екатерина М. · Циан</span></span></a></li>
-<li class="th"><a href="#rv-141164244"><span class="th-l">На связи</span><span class="th-q">«<mark>в любое время</mark> Ирина была с нами на связи»</span><span class="th-s"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><span>Клиент Циана · Циан</span></span></a></li>
-<li class="th"><a href="#rv-496229"><span class="th-l">Проверяет до сделки</span><span class="th-q">«выясняет все <mark>подводные камни до сделки</mark>»</span><span class="th-s"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><span>Клиент Циана · Циан</span></span></a></li>
-<li class="th"><a href="#rv-145026115"><span class="th-l">Берёт организацию на себя</span><span class="th-q">«Она <mark>полностью взяла на себя всю бумажную волокиту</mark>, проверку юридической чистоты объекта, подготовку договора и взаимодействие с другими участниками сделки»</span><span class="th-s"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><span>Клиент Циана · Циан</span></span></a></li>
-<li class="th"><a href="#rv-106292808"><span class="th-l">Не боится сложного</span><span class="th-q">«Ирина очень быстро <mark>решала спорные вопросы</mark>»</span><span class="th-s"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><span>Клиент Циана · Циан</span></span></a></li>
-<li class="th"><a href="#rv-136979578"><span class="th-l">Спокойно на сделке</span><span class="th-q">«Можно было <mark>спокойно выдохнуть и не нервничать</mark>, потому что все проходило идеально»</span><span class="th-s"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><span>Клиент Циана · Циан</span></span></a></li>
+<li class="th"><a href="#rv-markova"><span class="th-q">«всё разъясняла <mark>доступным языком</mark>»</span></a></li>
+<li class="th"><a href="#rv-141164244"><span class="th-q">«<mark>в любое время</mark> Ирина была с нами на связи»</span></a></li>
+<li class="th"><a href="#rv-496229"><span class="th-q">«выясняет все <mark>подводные камни до сделки</mark>»</span></a></li>
+<li class="th"><a href="#rv-145026115"><span class="th-q">«Она <mark>полностью взяла на себя всю бумажную волокиту</mark>, проверку юридической чистоты объекта, подготовку договора и взаимодействие с другими участниками сделки»</span></a></li>
+<li class="th"><a href="#rv-106292808"><span class="th-q">«Ирина очень быстро <mark>решала спорные вопросы</mark>»</span></a></li>
+<li class="th"><a href="#rv-136979578"><span class="th-q">«Можно было <mark>спокойно выдохнуть и не нервничать</mark>, потому что все проходило идеально»</span></a></li>
     </ul>
   </div>
 
@@ -427,55 +803,55 @@ details .ans p+p{margin-top:10px}
       <p class="flabel" id="flabel">Что у вас за ситуация?</p>
       <div class="filters" role="group" aria-labelledby="flabel">
         <button class="fchip" type="button" data-f="all" aria-pressed="true">Все отзывы</button>
-        <button class="fchip" type="button" data-f="pledge" aria-pressed="false">Залог и долги</button>
-        <button class="fchip" type="button" data-f="complex" aria-pressed="false">Сложные сделки</button>
         <button class="fchip" type="button" data-f="sell" aria-pressed="false">Продажа</button>
-        <button class="fchip" type="button" data-f="swap" aria-pressed="false">Продажа и покупка</button>
         <button class="fchip" type="button" data-f="buy" aria-pressed="false">Покупка</button>
-        <button class="fchip" type="button" data-f="repeat" aria-pressed="false">Вернулись снова</button>
+        <button class="fchip" type="button" data-f="complex" aria-pressed="false">Сложные сделки</button>
       </div>
       
     </div>
   </div>
 
-<section class="part band-dark" id="otzyvy-complex" data-part data-n="3" aria-labelledby="ph-complex"><div class="wrap"><div class="part-h"><div><p class="kicker">Залог, долги и сложные сделки</p><h3 class="ph" id="ph-complex">Когда было непросто</h3><p class="pd">Залог, опека, отказы других специалистов, четыре участника в одной сделке. Результат каждой истории относится к конкретной сделке.</p></div></div><div class="cards">
-<article class="rv has-full" id="rv-53685988" data-tags="complex pledge sell"><header class="rv-top"><span class="av av-1" aria-hidden="true">М</span><div class="rv-who"><p class="nm">Мария С.</p><p class="sub">1 ноября 2026 · ID 53685988</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Залог и долги</li><li>Продажа</li></ul><div class="rv-body" id="rb-53685988"><p class="rv-prev">… <mark>Менее чем за месяц Ирина смогла найти клиентов, и мы успешно продали мою квартиру без банкротства, оставив значительную сумму на руках</mark>. Ирина — профессионал своего дела, отлично разбирающийся в вопросах покупки, продажи и аренды недвижимости. Она честно и ответственно подходит к своей работе, внимательно слушает клиента, чтобы понять его потребности, и предлагает оптимальные решения. У неё также есть значительный опыт работы с залоговым имуществом, что является редкостью на рынке. Многие специалисты только заявляют о своих возможностях, но на практике ничего не предпринимают, а ждут выгоды, забывая о интересах клиента. Ирина умеет находить компромиссы, устраивающие обе стороны, и помогает избежать проблем при оформлении сделки. Если вам нужен надёжный риэлтор для покупки, продажи или аренды квартиры, а также для решения вопросов с залоговым имуществом без финансовых потерь, Ирина Михайлова — отличный выбор. Она сделает всё на высшем уровне и поможет избежать неприятностей. Рекомендую!</p><p class="rv-full">Здравствуйте! Хочу поделиться своим опытом работы с риэлтором Ириной Михайловой и оставить отзыв для тех, кто планирует воспользоваться её услугами. С Ириной я познакомилась случайно, когда уже сотрудничала с другим риэлтором, но ситуация была критической. Моя квартира была в залоге у банка, и я была на грани банкротства, так как не могла больше платить. Предыдущий агент не предпринимал никаких действий для быстрого решения моего вопроса, игнорировал звонки клиентов и предоставлял им неверную информацию. В результате за 1,5 месяца я так и не нашла покупателей, хотя люди проявляли интерес, но после общения с риэлтором теряли ко мне доверие. Когда я обратилась к Ирине Михайловой и описала свою проблему, она сразу предложила несколько вариантов выхода из ситуации и установила сроки (месяц). <mark>Менее чем за месяц Ирина смогла найти клиентов, и мы успешно продали мою квартиру без банкротства, оставив значительную сумму на руках</mark>. Ирина — профессионал своего дела, отлично разбирающийся в вопросах покупки, продажи и аренды недвижимости. Она честно и ответственно подходит к своей работе, внимательно слушает клиента, чтобы понять его потребности, и предлагает оптимальные решения. У неё также есть значительный опыт работы с залоговым имуществом, что является редкостью на рынке. Многие специалисты только заявляют о своих возможностях, но на практике ничего не предпринимают, а ждут выгоды, забывая о интересах клиента. Ирина умеет находить компромиссы, устраивающие обе стороны, и помогает избежать проблем при оформлении сделки. Если вам нужен надёжный риэлтор для покупки, продажи или аренды квартиры, а также для решения вопросов с залоговым имуществом без финансовых потерь, Ирина Михайлова — отличный выбор. Она сделает всё на высшем уровне и поможет избежать неприятностей. Рекомендую!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-53685988"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 53685988)</span></a> <a href="https://agencies.domclick.ru/agent/8252518/reviews" target="_blank" rel="noopener">Домклик ↗</a></span></div></article>
+<section class="part band-milk" id="otzyvy-all" data-part data-n="6" aria-labelledby="ph-reviews">
+  <div class="wrap">
+    <div class="part-h">
+      <div>
+        <p class="kicker">Что пишут люди</p>
+        <h3 class="ph" id="ph-reviews">Отзывы</h3>
+        <p class="pd">Реальные отзывы клиентов с Циана и Домклика — используйте фильтры выше, чтобы выбрать нужную тему.</p>
+      </div>
+    </div>
+    <div class="cards">
+<article class="rv has-full" id="rv-53685988" data-tags="complex pledge sell"><header class="rv-top"><span class="av av-1" aria-hidden="true">М</span><div class="rv-who"><p class="nm">Мария С.</p><p class="sub">1 ноября 2026 · ID 53685988</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Залог и долги</li><li>Продажа</li></ul><div class="rv-body" id="rb-53685988"><p class="rv-prev"><mark>Менее чем за месяц Ирина смогла найти клиентов, и мы успешно продали мою квартиру без банкротства, оставив значительную сумму на руках</mark>. Ирина — профессионал своего дела, отлично разбирающийся в вопросах покупки, продажи и аренды недвижимости. Она честно и ответственно подходит к своей работе, внимательно слушает клиента, чтобы понять его потребности, и предлагает оптимальные решения. У неё также есть значительный опыт работы с залоговым имуществом, что является редкостью на рынке. Многие специалисты только заявляют о своих возможностях, но на практике ничего не предпринимают, а ждут выгоды, забывая о интересах клиента. Ирина умеет находить компромиссы, устраивающие обе стороны, и помогает избежать проблем при оформлении сделки. Если вам нужен надёжный риэлтор для покупки, продажи или аренды квартиры, а также для решения вопросов с залоговым имуществом без финансовых потерь, Ирина Михайлова — отличный выбор. Она сделает всё на высшем уровне и поможет избежать неприятностей. Рекомендую!</p><p class="rv-full">Здравствуйте! Хочу поделиться своим опытом работы с риэлтором Ириной Михайловой и оставить отзыв для тех, кто планирует воспользоваться её услугами. С Ириной я познакомилась случайно, когда уже сотрудничала с другим риэлтором, но ситуация была критической. Моя квартира была в залоге у банка, и я была на грани банкротства, так как не могла больше платить. Предыдущий агент не предпринимал никаких действий для быстрого решения моего вопроса, игнорировал звонки клиентов и предоставлял им неверную информацию. В результате за 1,5 месяца я так и не нашла покупателей, хотя люди проявляли интерес, но после общения с риэлтором теряли ко мне доверие. Когда я обратилась к Ирине Михайловой и описала свою проблему, она сразу предложила несколько вариантов выхода из ситуации и установила сроки (месяц). <mark>Менее чем за месяц Ирина смогла найти клиентов, и мы успешно продали мою квартиру без банкротства, оставив значительную сумму на руках</mark>. Ирина — профессионал своего дела, отлично разбирающийся в вопросах покупки, продажи и аренды недвижимости. Она честно и ответственно подходит к своей работе, внимательно слушает клиента, чтобы понять его потребности, и предлагает оптимальные решения. У неё также есть значительный опыт работы с залоговым имуществом, что является редкостью на рынке. Многие специалисты только заявляют о своих возможностях, но на практике ничего не предпринимают, а ждут выгоды, забывая о интересах клиента. Ирина умеет находить компромиссы, устраивающие обе стороны, и помогает избежать проблем при оформлении сделки. Если вам нужен надёжный риэлтор для покупки, продажи или аренды квартиры, а также для решения вопросов с залоговым имуществом без финансовых потерь, Ирина Михайлова — отличный выбор. Она сделает всё на высшем уровне и поможет избежать неприятностей. Рекомендую!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-53685988"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 53685988)</span></a> <a href="https://agencies.domclick.ru/agent/8252518/reviews" target="_blank" rel="noopener">Домклик ↗</a></span></div></article>
 <article class="rv" id="rv-496229" data-tags="complex pledge repeat"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">26 декабря 2025 · ID 496229</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Залог и долги</li><li>Сложная сделка</li><li>Вернулись снова</li></ul><div class="rv-body" id="rb-496229"><p class="rv-prev"><mark>С Ирой работаем уже по 5-му объекту недвижимости</mark>: 1 продали, 3 купили/продали, 1 купили. Я себя ощущаю немного овощем на сделках, тк Ира готовит все договора, проверяет все документы, выясняет все подводные камни до сделки. Вечно ворчит, что я не прочитал договор дкп, все выписки о бывших собственниках, проверки на риски, банкротства, долги ... А зачем, если она все по 10 раз проверяет))) Составляет сложные сделки. Это когда у вас альтернатива, <mark>какая-то квартира в долгах и с запретом на регистрацию</mark>, а другая с ипотекой и поехавшими кукухой собственниками . И все это оказывается решается))) А еще да, она торгуется с покупателями/продавцами, притом успешно и в мою пользу. И вообще я ловлю себя на мысли, хорошо что Ирина на моей стороне, а не на стороне контрагентов. Потребовался бы очень опытный риэлтор, чтобы уравновесить баланс. Вобщем, если Ира ваш риэлтор - радуйтесь, если нет - ...</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-496229"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 496229)</span></a></span></div></article>
-<article class="rv has-full" id="rv-140799753" data-tags="buy complex repeat sell swap"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">18 апреля 2026 · ID 140799753</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li><li>Сложная сделка</li><li>Вернулись снова</li></ul><div class="rv-body" id="rb-140799753"><p class="rv-prev">… У нас была трудная задача - <mark>найти покупателей на 2 квартиры и купить квартиру в другом районе, не затратив дополнительных средств. Ирине это удалось выполнить в короткий промежуток времени</mark>. В течение месяца проведены все сделки. Она очень хороший организатор и исполнитель. Своевременно говорила о запросе необходимых документов, справок, объясняла как и где их получить быстрее. Проверяла надежность продавцов и покупателей. Грамотно составляла документы и сопровождала на всех этапах сделок. Давала рекомендации. Провела все сделки в строго обозначенные ею же сроки. Ирина, огромное Вам спасибо за вашу работу, ваш позитивизм, юмор, доброе и терпеливое отношение. Очень рады были общению с Вами. Огромное спасибо!!! Желаю вам и в дальнейшем удачных сделок и приятных людей на вашем пути🙏</p><p class="rv-full">Хочу поблагодарить Ирину Рудольфовну Михайлову за оперативную, четкую, скурпулезную работу по проведнию многоэтапной купле-продажи квартир. Знакомы с Ириной не первый год. Несколько лет назад помогала сыну купить квартиру. В этот раз мы сами обратились к ней за помощью. У нас была трудная задача - <mark>найти покупателей на 2 квартиры и купить квартиру в другом районе, не затратив дополнительных средств. Ирине это удалось выполнить в короткий промежуток времени</mark>. В течение месяца проведены все сделки. Она очень хороший организатор и исполнитель. Своевременно говорила о запросе необходимых документов, справок, объясняла как и где их получить быстрее. Проверяла надежность продавцов и покупателей. Грамотно составляла документы и сопровождала на всех этапах сделок. Давала рекомендации. Провела все сделки в строго обозначенные ею же сроки. Ирина, огромное Вам спасибо за вашу работу, ваш позитивизм, юмор, доброе и терпеливое отношение. Очень рады были общению с Вами. Огромное спасибо!!! Желаю вам и в дальнейшем удачных сделок и приятных людей на вашем пути🙏</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-140799753"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 140799753)</span></a></span></div></article>
-<article class="rv has-full" id="rv-141164244" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">15 мая 2026 · ID 141164244</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-141164244"><p class="rv-prev">… С первых минут общения моментально понимаешь, твое дело в надежных руках)) У нас была сделка продажа + покупка нового жилья, <mark>сделка непростая, 4 участника и достаточно продолжительная по времени</mark>. Ирина была с нами на всех встречах, помогала со сбором документов, отвечала на все наши звонки (<mark>в любое время Ирина была с нами на связи</mark>), содействовала нам во всех вопросах и поддерживала во всех сомнениях, которые у нас были. Всегда в прекрасном настроении, очень приятная и терпеливая к весьма незнающим и непонимающим клиентам. Все прошло безупречно и комфортно! Ирина - вы наш супергерой! Спасибо вам большое от нашей семьи!</p><p class="rv-full">Выражаем особую благодарность Ирине! Это была настоящая находка для нас, порекомендовали наши знакомые и мы остались довольны на все 100%! Ирина грамотный, опытный, оперативный и отзывчивый профессионал своего дела. С первых минут общения моментально понимаешь, твое дело в надежных руках)) У нас была сделка продажа + покупка нового жилья, <mark>сделка непростая, 4 участника и достаточно продолжительная по времени</mark>. Ирина была с нами на всех встречах, помогала со сбором документов, отвечала на все наши звонки (<mark>в любое время Ирина была с нами на связи</mark>), содействовала нам во всех вопросах и поддерживала во всех сомнениях, которые у нас были. Всегда в прекрасном настроении, очень приятная и терпеливая к весьма незнающим и непонимающим клиентам. Все прошло безупречно и комфортно! Ирина - вы наш супергерой! Спасибо вам большое от нашей семьи!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-141164244"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 141164244)</span></a></span></div></article>
-<article class="rv has-full" id="rv-136700682" data-tags="complex"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">8 ноября 2025 · ID 136700682</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Сложная сделка</li></ul><div class="rv-body" id="rb-136700682"><p class="rv-prev">… очень сложных вопросах ,в данном случае как оказался у нас ,!<mark>когда так называемые профессионалы просто говорят что ваш вопрос очень сложный</mark> !и мы с такими клиентами как вы не работаем !И вот наконец-то !не побоюсь этого слова нам представилась такая возможность встретить настоящего знатока своего профессионального дела !бонусом приятного человека в первую очередь понимающего и сочувствующего !Ирина Рудольфовна спасибо вам огромное !Вы помогли нам разрешить наши сложные вопросы !Всего вам хорошего ,успехов в ваших нелегких делах !Счастья и здоровья вам !p.s […]</p><p class="rv-full">Семья […] выражает огромную благодарность Ирине Рудольфовне !Огромное спасибо за ваш не легкий труд !за ваш профессиональный подход в таких трудных и очень сложных вопросах ,в данном случае как оказался у нас ,!<mark>когда так называемые профессионалы просто говорят что ваш вопрос очень сложный</mark> !и мы с такими клиентами как вы не работаем !И вот наконец-то !не побоюсь этого слова нам представилась такая возможность встретить настоящего знатока своего профессионального дела !бонусом приятного человека в первую очередь понимающего и сочувствующего !Ирина Рудольфовна спасибо вам огромное !Вы помогли нам разрешить наши сложные вопросы !Всего вам хорошего ,успехов в ваших нелегких делах !Счастья и здоровья вам !p.s […]</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-136700682"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 136700682)</span></a></span></div></article>
+<article class="rv has-full" id="rv-140799753" data-tags="buy complex repeat sell swap"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">18 апреля 2026 · ID 140799753</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li><li>Сложная сделка</li><li>Вернулись снова</li></ul><div class="rv-body" id="rb-140799753"><p class="rv-prev">У нас была трудная задача - <mark>найти покупателей на 2 квартиры и купить квартиру в другом районе, не затратив дополнительных средств. Ирине это удалось выполнить в короткий промежуток времени</mark>. В течение месяца проведены все сделки. Она очень хороший организатор и исполнитель. Своевременно говорила о запросе необходимых документов, справок, объясняла как и где их получить быстрее. Проверяла надежность продавцов и покупателей. Грамотно составляла документы и сопровождала на всех этапах сделок. Давала рекомендации. Провела все сделки в строго обозначенные ею же сроки. Ирина, огромное Вам спасибо за вашу работу, ваш позитивизм, юмор, доброе и терпеливое отношение. Очень рады были общению с Вами. Огромное спасибо!!! Желаю вам и в дальнейшем удачных сделок и приятных людей на вашем пути🙏</p><p class="rv-full">Хочу поблагодарить Ирину Рудольфовну Михайлову за оперативную, четкую, скурпулезную работу по проведнию многоэтапной купле-продажи квартир. Знакомы с Ириной не первый год. Несколько лет назад помогала сыну купить квартиру. В этот раз мы сами обратились к ней за помощью. У нас была трудная задача - <mark>найти покупателей на 2 квартиры и купить квартиру в другом районе, не затратив дополнительных средств. Ирине это удалось выполнить в короткий промежуток времени</mark>. В течение месяца проведены все сделки. Она очень хороший организатор и исполнитель. Своевременно говорила о запросе необходимых документов, справок, объясняла как и где их получить быстрее. Проверяла надежность продавцов и покупателей. Грамотно составляла документы и сопровождала на всех этапах сделок. Давала рекомендации. Провела все сделки в строго обозначенные ею же сроки. Ирина, огромное Вам спасибо за вашу работу, ваш позитивизм, юмор, доброе и терпеливое отношение. Очень рады были общению с Вами. Огромное спасибо!!! Желаю вам и в дальнейшем удачных сделок и приятных людей на вашем пути🙏</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-140799753"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 140799753)</span></a></span></div></article>
+<article class="rv has-full" id="rv-141164244" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">15 мая 2026 · ID 141164244</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-141164244"><p class="rv-prev">С первых минут общения моментально понимаешь, твое дело в надежных руках)) У нас была сделка продажа + покупка нового жилья, <mark>сделка непростая, 4 участника и достаточно продолжительная по времени</mark>. Ирина была с нами на всех встречах, помогала со сбором документов, отвечала на все наши звонки (<mark>в любое время Ирина была с нами на связи</mark>), содействовала нам во всех вопросах и поддерживала во всех сомнениях, которые у нас были. Всегда в прекрасном настроении, очень приятная и терпеливая к весьма незнающим и непонимающим клиентам. Все прошло безупречно и комфортно! Ирина - вы наш супергерой! Спасибо вам большое от нашей семьи!</p><p class="rv-full">Выражаем особую благодарность Ирине! Это была настоящая находка для нас, порекомендовали наши знакомые и мы остались довольны на все 100%! Ирина грамотный, опытный, оперативный и отзывчивый профессионал своего дела. С первых минут общения моментально понимаешь, твое дело в надежных руках)) У нас была сделка продажа + покупка нового жилья, <mark>сделка непростая, 4 участника и достаточно продолжительная по времени</mark>. Ирина была с нами на всех встречах, помогала со сбором документов, отвечала на все наши звонки (<mark>в любое время Ирина была с нами на связи</mark>), содействовала нам во всех вопросах и поддерживала во всех сомнениях, которые у нас были. Всегда в прекрасном настроении, очень приятная и терпеливая к весьма незнающим и непонимающим клиентам. Все прошло безупречно и комфортно! Ирина - вы наш супергерой! Спасибо вам большое от нашей семьи!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-141164244"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 141164244)</span></a></span></div></article>
+<article class="rv has-full" id="rv-136700682" data-tags="complex"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">8 ноября 2025 · ID 136700682</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Сложная сделка</li></ul><div class="rv-body" id="rb-136700682"><p class="rv-prev">очень сложных вопросах ,в данном случае как оказался у нас ,!<mark>когда так называемые профессионалы просто говорят что ваш вопрос очень сложный</mark> !и мы с такими клиентами как вы не работаем !И вот наконец-то !не побоюсь этого слова нам представилась такая возможность встретить настоящего знатока своего профессионального дела !бонусом приятного человека в первую очередь понимающего и сочувствующего !Ирина Рудольфовна спасибо вам огромное !Вы помогли нам разрешить наши сложные вопросы !Всего вам хорошего ,успехов в ваших нелегких делах !Счастья и здоровья вам !p.s […]</p><p class="rv-full">Семья […] выражает огромную благодарность Ирине Рудольфовне !Огромное спасибо за ваш не легкий труд !за ваш профессиональный подход в таких трудных и очень сложных вопросах ,в данном случае как оказался у нас ,!<mark>когда так называемые профессионалы просто говорят что ваш вопрос очень сложный</mark> !и мы с такими клиентами как вы не работаем !И вот наконец-то !не побоюсь этого слова нам представилась такая возможность встретить настоящего знатока своего профессионального дела !бонусом приятного человека в первую очередь понимающего и сочувствующего !Ирина Рудольфовна спасибо вам огромное !Вы помогли нам разрешить наши сложные вопросы !Всего вам хорошего ,успехов в ваших нелегких делах !Счастья и здоровья вам !p.s […]</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-136700682"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 136700682)</span></a></span></div></article>
 <article class="rv" id="rv-124497925" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">14 ноября 2024 · ID 124497925</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-124497925"><p class="rv-prev">Я хочу выразить огромную благодарность нашему риелтору Ирине за отличную работу! Она, действительно, профессионал своего дела! У нас была сложная сделка (<mark>продажа с опекой и одновременная покупка новой квартиры</mark>) Благодаря ее помощи все прошло без лишних хлопот с нашей стороны. Ирина всегда на связи, отвечает на любые вопросы и поддерживала нас на всех этапах сделок. Готовила все документы, занимала очереди, общалась с продавцами и покупателями. С уверенностью рекомендую всем обращаться к Ирине! Она надежный и опытный риелтора.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-124497925"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 124497925)</span></a></span></div></article>
 <article class="rv" id="rv-138543832" data-tags="complex"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">8 марта 2026 · ID 138543832</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Сложная сделка</li></ul><div class="rv-body" id="rb-138543832"><p class="rv-prev">Работал с Ириной по очень непростой сделке с недвижимостью — куча нюансов, проверок и согласований. <mark>Всё прошло идеально: без единой заминки, в установленные сроки и на выгодных условиях</mark>.Профессионал высшего уровня — компетентный, всегда на связи, знает все тонкости рынка и юридические аспекты. Рекомендую всем, кто ищет надёжного специалиста! Ирин, вам от нашей семьи огромная благодарность!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-138543832"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 138543832)</span></a></span></div></article>
 <article class="rv" id="rv-106977466" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">16 марта 2024 · ID 106977466</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-106977466"><p class="rv-prev">Ирина отличный специалист! Помогла нам с очень непростой сделкой! Сделка была альтернативная, <mark>продавали квартиру с мат. капиталом и приобретали новостройку</mark>. Было очень непросто, но мы вместе прошли через эти тернии и уже заехали в новую квартиру! Ее советы и опыт нам всегда помогали. Огромное спасибо! Вы лучшая!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-106977466"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 106977466)</span></a></span></div></article>
 <article class="rv" id="rv-markova" data-tags="buy complex"><header class="rv-top"><span class="av av-1" aria-hidden="true">Е</span><div class="rv-who"><p class="nm">Екатерина М.</p><p class="sub">11 марта 2026</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-markova"><p class="rv-prev">Хочется сказать огромное спасибо Ирине, которая была агентом со стороны продавца, всё чётко, быстро. Она высылала все документы для ознакомления, <mark>всё разъясняла доступным языком</mark>, что немаловажно, когда ты не специалист и не каждый день покупаешь/ продаёшь недвижимость) Ирина посоветовала нам грамотного юриста, так как <mark>сделка была непростая, а с использованием сертификата НИС военнослужащих</mark>. Ирине и продавцу пришлось ждать меня, пока Росвоенипотека все одобрит и перечислит деньги на счёт. Постоянно информировала меня о действиях со стороны продавца . Наша сделка прошла гладко, согласованно, абсолютно без проблем. С Ириной очень приятно работать, она тактична, вежлива, позитивна, ответственна, в своём деле профессионал! Ирина, ОГРОМНЕЙШЕЕ СПАСИБО!!!Процветания и хороших успехов в работе!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-markova"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан)</span></a></span></div></article>
 <article class="rv" id="rv-romanova" data-tags="buy complex"><header class="rv-top"><span class="av av-2" aria-hidden="true">Е</span><div class="rv-who"><p class="nm">Елена Р.</p><p class="sub">18 ноября 2025</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-romanova"><p class="rv-prev">Спасибо огромное Ирине за отзывчивость и профессионализм. <mark>Покупали квартиру с маткапиталом и соц. ипотекой. Несмотря на эти сложности, сделка прошла максимально гладко</mark>. Легко находила подход к продавцам, разъясняла все тонкости обеим сторонам. Сотрудничать было очень приятно: постоянно на связи, практически за руку водила по всем инстанциям, собирали необходимые документы. Рекомендую Ирину как опытного и отзывчивого специалиста!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-romanova"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан)</span></a></span></div></article>
 <article class="rv" id="rv-106292808" data-tags="buy complex"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">29 сентября 2025 · ID 106292808</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li><li>Сложная сделка</li></ul><div class="rv-body" id="rb-106292808"><p class="rv-prev">Хочу выразить Ирине огромную благодарность за помощь в покупке квартиры. Сделка была очень не простая,тем не менее для меня это обошлось все легко. Всеми вопросами Ирина занималась исключительно сама. <mark>Ирина очень быстро решала спорные вопросы</mark>,очень грамотно это делала. Уложились в сроки. Ирина,желаю Вам благодарных клиентов . И еще раз огромное спасибо 🙏🏻</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-106292808"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 106292808)</span></a></span></div></article>
-</div><div class="more-row"><button type="button" class="more" data-more><span class="more-t"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="more-note"></p></div></div></section>
-<section class="part band-milk" id="otzyvy-sell" data-part data-n="3" aria-labelledby="ph-sell"><div class="wrap"><div class="part-h"><div><p class="kicker">Продажа</p><h3 class="ph" id="ph-sell">Продавали квартиру</h3><p class="pd">Продажа, продажа с покупкой следом, продажа из другого города.</p></div></div><div class="cards">
 <article class="rv" id="rv-74640825" data-tags="sell"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">3 августа 2023 · ID 74640825</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li></ul><div class="rv-body" id="rb-74640825"><p class="rv-prev">Ирина - профессионал. <mark>Сменили четырёх специалистов, все как один твердили, что нашу квартиру НЕРЕАЛЬНО продать</mark>, что у нас слишком завышенные запросы и т.д. Ирина очень оперативно взялась за наш объект, сразу после размещения объявления пошли просмотры чуть ли не каждый день, были звонки, Ирина была постоянно на связи, давала обратную связь, в итоге <mark>покупатель нашёлся за пару недель</mark> и мы вышли на сделку, далее уже были все организационные моменты. Молодец, мы очень довольны. Ещё и посоветовала специалистов из смежных областей. Очень довольны. На следующую продажу только с ней. Спасибо Вам.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-74640825"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 74640825)</span></a></span></div></article>
-<article class="rv has-full" id="rv-104093139" data-tags="repeat sell"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">11 июня 2023 · ID 104093139</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li><li>Вернулись снова</li></ul><div class="rv-body" id="rb-104093139"><p class="rv-prev">… <mark>Я не могла продать квартиру более 6 месяцев, но как только Ирина взяла все в свои руки, квартира была продана за 1 месяц</mark>! С тех пор все сделки с недвижимостью я доверяю только Ирине! Хочу отметить, что Ирина, помимо профессионализма, очень добрый, светлый, лучезарный, порядочный человек! От неё настолько идёт сильная положительная энергетика, что пообщавшись с ней, у тебя в принципе нет проблем и все решаемо! Если Вы хотите совершать сделки с недвижимостью быстро, чётко и грамотно, то однозначно рекомендую данного Риэтора! Ирина благодарю Вас от всей души!!!! Здоровья Вам, мира, благополучия!</p><p class="rv-full">Хочу выразить огромную благодарность Риэлтору Ирине! В сфере недвижимости есть много риэлторов, но по истине профессионалов своего дела редко сейчас можно встретить. Мне очень повезло в жизни, я познакомилась именно с таким профессионалом своего дела. Ирина не только может проводить простые сделки купли-продажи быстро, четко и грамотно, но и сложные варианты ей нипочём. <mark>Я не могла продать квартиру более 6 месяцев, но как только Ирина взяла все в свои руки, квартира была продана за 1 месяц</mark>! С тех пор все сделки с недвижимостью я доверяю только Ирине! Хочу отметить, что Ирина, помимо профессионализма, очень добрый, светлый, лучезарный, порядочный человек! От неё настолько идёт сильная положительная энергетика, что пообщавшись с ней, у тебя в принципе нет проблем и все решаемо! Если Вы хотите совершать сделки с недвижимостью быстро, чётко и грамотно, то однозначно рекомендую данного Риэтора! Ирина благодарю Вас от всей души!!!! Здоровья Вам, мира, благополучия!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-104093139"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 104093139)</span></a></span></div></article>
+<article class="rv has-full" id="rv-104093139" data-tags="repeat sell"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">11 июня 2023 · ID 104093139</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li><li>Вернулись снова</li></ul><div class="rv-body" id="rb-104093139"><p class="rv-prev"><mark>Я не могла продать квартиру более 6 месяцев, но как только Ирина взяла все в свои руки, квартира была продана за 1 месяц</mark>! С тех пор все сделки с недвижимостью я доверяю только Ирине! Хочу отметить, что Ирина, помимо профессионализма, очень добрый, светлый, лучезарный, порядочный человек! От неё настолько идёт сильная положительная энергетика, что пообщавшись с ней, у тебя в принципе нет проблем и все решаемо! Если Вы хотите совершать сделки с недвижимостью быстро, чётко и грамотно, то однозначно рекомендую данного Риэтора! Ирина благодарю Вас от всей души!!!! Здоровья Вам, мира, благополучия!</p><p class="rv-full">Хочу выразить огромную благодарность Риэлтору Ирине! В сфере недвижимости есть много риэлторов, но по истине профессионалов своего дела редко сейчас можно встретить. Мне очень повезло в жизни, я познакомилась именно с таким профессионалом своего дела. Ирина не только может проводить простые сделки купли-продажи быстро, четко и грамотно, но и сложные варианты ей нипочём. <mark>Я не могла продать квартиру более 6 месяцев, но как только Ирина взяла все в свои руки, квартира была продана за 1 месяц</mark>! С тех пор все сделки с недвижимостью я доверяю только Ирине! Хочу отметить, что Ирина, помимо профессионализма, очень добрый, светлый, лучезарный, порядочный человек! От неё настолько идёт сильная положительная энергетика, что пообщавшись с ней, у тебя в принципе нет проблем и все решаемо! Если Вы хотите совершать сделки с недвижимостью быстро, чётко и грамотно, то однозначно рекомендую данного Риэтора! Ирина благодарю Вас от всей души!!!! Здоровья Вам, мира, благополучия!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-104093139"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 104093139)</span></a></span></div></article>
 <article class="rv" id="rv-21822328" data-tags="sell"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">13 мая 2026 · ID 21822328</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li></ul><div class="rv-body" id="rb-21822328"><p class="rv-prev">Это высококлассный надёжный специалист! По цене - <mark>получили больше чем хотели</mark>, по подготовке к сделке - нам была оказана максимальная помощь маклера (Ирины) и разъяснения каждого шага помогли нам комфортно подготовиться к сделке. И покупатель и продавец счастливы. Конечно буду следующую покупку делать только с ней</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-21822328"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 21822328)</span></a></span></div></article>
 <article class="rv" id="rv-117027064" data-tags="sell"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">9 июня 2026 · ID 117027064</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li></ul><div class="rv-body" id="rb-117027064"><p class="rv-prev">Высококлассный специалист. Сопровождала сделку со стороны продавца — <mark>все документы были подготовлены оперативно, проблем при проведении сделки не было</mark>. Не было и нервов, сразу с момента просмотра возникло ощущение, что все будет хорошо и чисто. Хорошо разбирается во всех аспектах сделок с недвижимостью, всегда на связи. Если буду подбирать квартиру на покупку/продавать недвижимость, обязательно обращусь к Ирине и буду советовать ее услуги знакомым</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-117027064"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 117027064)</span></a></span></div></article>
 <article class="rv" id="rv-95485660" data-tags="sell"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">20 апреля 2024 · ID 95485660</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li></ul><div class="rv-body" id="rb-95485660"><p class="rv-prev">Спасибо большое Ирине Михайловой! Она очень хороший и ответственный специалист по недвижимости. <mark>Квартиру в Балашихе продала за 3 недели</mark>. Сделала качественные фотографии, разместила информативноное объявление ,в котором указала все достоинства квартиры и места расположения её. Сама проводила показ квартиры потенциальным клиентам. Всё это позволило в кратчайшие сроки продать квартиру по выгодной цене. Рекомендую всем кто собирается продать или купить квартиру обращаться к грамотному специалисту Ирине!!!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-95485660"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 95485660)</span></a></span></div></article>
-<article class="rv has-full" id="rv-108545336" data-tags="sell"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">8 декабря 2023 · ID 108545336</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li></ul><div class="rv-body" id="rb-108545336"><p class="rv-prev">… <mark>За считанные дни нашла покупателей, взяла аванс и вышла на сделку, по той цене, которая нами была заявлена</mark> . Весь процесс вела очень профессионально , грамотно , четко , качественно. Очень благодарны Ирине и рады знакомству. Однозначно будем рекомендовать Ирину , как высокопрофессионального специалиста по вопросам недвижимости , лучшего специалиста не найти ! Обратившись к Ирине, вы получите 100 процентный результат реализации своих планов! Если вы хотите быстро, безопасно и выгоднее , чем ожидаете продать свою недвижимость, то Ирина это тот человек, который вам нужен! Ирина, наша семья желает Вам здоровья, успехов в дальнейших продажах и категорического счастья!!!</p><p class="rv-full">Мы продавали квартиру в Балашихе, а сами находились в другом городе. Обратившись в крупные агентства по недвижимости, натолкнулись на их интерес на нас заработать , с предложением занизить цену до миллиона рублей, обещая лишь в том случае продать квартиру , а также с полным отсутствием заинтересованности лоббировать интересы клиентов в сроках, цене (был не приятный опыт). Стали искать риелтора самостоятельно и нашли Ирину. Ирина прекрасный, душевный, энергичный, ответственный человек, профессионал своего дела!!! Всегда на связи , максимально полная обратная связь! <mark>За считанные дни нашла покупателей, взяла аванс и вышла на сделку, по той цене, которая нами была заявлена</mark> . Весь процесс вела очень профессионально , грамотно , четко , качественно. Очень благодарны Ирине и рады знакомству. Однозначно будем рекомендовать Ирину , как высокопрофессионального специалиста по вопросам недвижимости , лучшего специалиста не найти ! Обратившись к Ирине, вы получите 100 процентный результат реализации своих планов! Если вы хотите быстро, безопасно и выгоднее , чем ожидаете продать свою недвижимость, то Ирина это тот человек, который вам нужен! Ирина, наша семья желает Вам здоровья, успехов в дальнейших продажах и категорического счастья!!!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-108545336"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 108545336)</span></a></span></div></article>
-<article class="rv has-full" id="rv-144231181" data-tags="buy sell swap"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">4 сентября 2026 · ID 144231181</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li></ul><div class="rv-body" id="rb-144231181"><p class="rv-prev">… <mark>Уложились в один месяц</mark>. Помимо профессиональных качеств хочу отметить характер Ирины. Это добрый, отзывчивый человек, готовый приложить максимум усилий во благо своего клиента, зачастую решая возникающие сопутствующие проблемы, которые не входят в ее прямые обязанности. Это человек с колоссальным терпением и тактом, благодаря которым Ирине удается решать вопросы с непростыми покупателями, стойко вынося на своих хрупких плечах их капризы и причуды. Одним словом, я очень рада, что моей сделкой занималась Ирина, которая обожает свою работу и благодаря которой я могу теперь жить в своей новой квартире с полным спокойствием и уверенностью, что эта сделка была идеальной во всех отношениях.</p><p class="rv-full">Для продажи квартиры в Балашихе и покупки жилья в Москве обратилась за помощью к риелтору Ирине. Ирина сделала отличные фото в объявлении, на которое откликнулись многие желающие осмотреть квартиру. Благодаря профессионализму и умению строить диалог с людьми Ирине не составило большого труда найти покупателей. Документы на сделку были подготовлены молниеносно, сделка прошла быстро и очень комфортно. Так же прошла и сделка по покупке квартиры. <mark>Уложились в один месяц</mark>. Помимо профессиональных качеств хочу отметить характер Ирины. Это добрый, отзывчивый человек, готовый приложить максимум усилий во благо своего клиента, зачастую решая возникающие сопутствующие проблемы, которые не входят в ее прямые обязанности. Это человек с колоссальным терпением и тактом, благодаря которым Ирине удается решать вопросы с непростыми покупателями, стойко вынося на своих хрупких плечах их капризы и причуды. Одним словом, я очень рада, что моей сделкой занималась Ирина, которая обожает свою работу и благодаря которой я могу теперь жить в своей новой квартире с полным спокойствием и уверенностью, что эта сделка была идеальной во всех отношениях.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-144231181"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 144231181)</span></a></span></div></article>
-<article class="rv has-full" id="rv-126671814" data-tags="buy sell swap"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">25 мая 2025 · ID 126671814</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li></ul><div class="rv-body" id="rb-126671814"><p class="rv-prev">… Сделка прошла четко и слаженно, все документы продавца были проверены, <mark>покупатели найдены в кротчайшие сроки</mark>! Фото квартиры для продажи сделаны на высшем качестве! Ирина может найти подход к самым требовательным и капризным людям! Всем рекомендую!</p><p class="rv-full">Хотим сказать большое спасибо Ирине за проведенную сделку по купли-продажи нашей квартиры! Нужно было продать нашу квартиру и приобрести нам другую! Сделка прошла четко и слаженно, все документы продавца были проверены, <mark>покупатели найдены в кротчайшие сроки</mark>! Фото квартиры для продажи сделаны на высшем качестве! Ирина может найти подход к самым требовательным и капризным людям! Всем рекомендую!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-126671814"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 126671814)</span></a></span></div></article>
-<article class="rv has-full" id="rv-18378400" data-tags="buy sell swap"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">27 апреля 2025 · ID 18378400</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li></ul><div class="rv-body" id="rb-18378400"><p class="rv-prev">… Благодаря еë работе, <mark>меньше чем за 2 месяца, мы продали, купили и получили ключи от нашей квартиры</mark>. Ирина работает по договору, соблюдает все условия и сроки, всегда была на связи и отвечала на все наши многочисленные вопросы, помогла собрать недостающие документы, которые были необходимы для продажи и покупки. Мы очень довольны еë работой и рекомендуем!</p><p class="rv-full">Хотели бы выразить благодарность Михайловой Ирине Рудольфовне за её помощь в одновременной продаже квартиры и покупке новой (вторичное жилье). Для продажи квартиры Ирина сделала очень качественные фотографии, видео, разместила объявления, организовала показы квартиры. Покупатель нашелся очень быстро и быстро вышли на сделку. Одновременно Ирина организовала нам большое количество просмотров понравившихся нам квартир, проверила юридическую чистоту квартиры. Благодаря еë работе, <mark>меньше чем за 2 месяца, мы продали, купили и получили ключи от нашей квартиры</mark>. Ирина работает по договору, соблюдает все условия и сроки, всегда была на связи и отвечала на все наши многочисленные вопросы, помогла собрать недостающие документы, которые были необходимы для продажи и покупки. Мы очень довольны еë работой и рекомендуем!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-18378400"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 18378400)</span></a></span></div></article>
-</div><div class="more-row"><button type="button" class="more" data-more><span class="more-t"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="more-note"></p></div></div></section>
-<section class="part band-lime" id="otzyvy-buy" data-part data-n="3" aria-labelledby="ph-buy"><div class="wrap"><div class="part-h"><div><p class="kicker">Покупка</p><h3 class="ph" id="ph-buy">Покупали квартиру</h3><p class="pd">Проверка квартиры и продавца, ипотека, юридическое сопровождение, первая покупка.</p></div></div><div class="cards">
-<article class="rv has-full" id="rv-145026115" data-tags="buy"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">6 октября 2026 · ID 145026115</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-145026115"><p class="rv-prev">… <mark>Она полностью взяла на себя всю бумажную волокиту, проверку юридической чистоты объекта, подготовку договора и взаимодействие с другими участниками сделки</mark>. Для меня это стало огромным облегчением, ведь не пришлось переживать за правильность оформления документов и юридические тонкости. На самой сделке Ирина контролировала каждый шаг, от передачи денег до подписания финальных бумаг, уверенно отстаивая мои интересы как покупателя. Это специалист с большой буквы, которому можно полностью доверять. Искренне рекомендую Ирину всем, кто ищет надежного профессионала</p><p class="rv-full">Хочу выразить огромную благодарность Ирине за неоценимую помощь в покупке квартиры. Изначально весь этот процесс казался мне очень сложным , но благодаря ее профессионализму сделка прошла максимально гладко и спокойно. Ирина всегда была на связи, буквально двадцать четыре на семь, оперативно и понятно отвечала на любые вопросы и держала меня в курсе каждого этапа. <mark>Она полностью взяла на себя всю бумажную волокиту, проверку юридической чистоты объекта, подготовку договора и взаимодействие с другими участниками сделки</mark>. Для меня это стало огромным облегчением, ведь не пришлось переживать за правильность оформления документов и юридические тонкости. На самой сделке Ирина контролировала каждый шаг, от передачи денег до подписания финальных бумаг, уверенно отстаивая мои интересы как покупателя. Это специалист с большой буквы, которому можно полностью доверять. Искренне рекомендую Ирину всем, кто ищет надежного профессионала</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-145026115"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 145026115)</span></a></span></div></article>
+<article class="rv has-full" id="rv-108545336" data-tags="sell"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">8 декабря 2023 · ID 108545336</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа</li></ul><div class="rv-body" id="rb-108545336"><p class="rv-prev"><mark>За считанные дни нашла покупателей, взяла аванс и вышла на сделку, по той цене, которая нами была заявлена</mark> . Весь процесс вела очень профессионально , грамотно , четко , качественно. Очень благодарны Ирине и рады знакомству. Однозначно будем рекомендовать Ирину , как высокопрофессионального специалиста по вопросам недвижимости , лучшего специалиста не найти ! Обратившись к Ирине, вы получите 100 процентный результат реализации своих планов! Если вы хотите быстро, безопасно и выгоднее , чем ожидаете продать свою недвижимость, то Ирина это тот человек, который вам нужен! Ирина, наша семья желает Вам здоровья, успехов в дальнейших продажах и категорического счастья!!!</p><p class="rv-full">Мы продавали квартиру в Балашихе, а сами находились в другом городе. Обратившись в крупные агентства по недвижимости, натолкнулись на их интерес на нас заработать , с предложением занизить цену до миллиона рублей, обещая лишь в том случае продать квартиру , а также с полным отсутствием заинтересованности лоббировать интересы клиентов в сроках, цене (был не приятный опыт). Стали искать риелтора самостоятельно и нашли Ирину. Ирина прекрасный, душевный, энергичный, ответственный человек, профессионал своего дела!!! Всегда на связи , максимально полная обратная связь! <mark>За считанные дни нашла покупателей, взяла аванс и вышла на сделку, по той цене, которая нами была заявлена</mark> . Весь процесс вела очень профессионально , грамотно , четко , качественно. Очень благодарны Ирине и рады знакомству. Однозначно будем рекомендовать Ирину , как высокопрофессионального специалиста по вопросам недвижимости , лучшего специалиста не найти ! Обратившись к Ирине, вы получите 100 процентный результат реализации своих планов! Если вы хотите быстро, безопасно и выгоднее , чем ожидаете продать свою недвижимость, то Ирина это тот человек, который вам нужен! Ирина, наша семья желает Вам здоровья, успехов в дальнейших продажах и категорического счастья!!!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-108545336"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 108545336)</span></a></span></div></article>
+<article class="rv has-full" id="rv-144231181" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">4 сентября 2026 · ID 144231181</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li></ul><div class="rv-body" id="rb-144231181"><p class="rv-prev"><mark>Уложились в один месяц</mark>. Помимо профессиональных качеств хочу отметить характер Ирины. Это добрый, отзывчивый человек, готовый приложить максимум усилий во благо своего клиента, зачастую решая возникающие сопутствующие проблемы, которые не входят в ее прямые обязанности. Это человек с колоссальным терпением и тактом, благодаря которым Ирине удается решать вопросы с непростыми покупателями, стойко вынося на своих хрупких плечах их капризы и причуды. Одним словом, я очень рада, что моей сделкой занималась Ирина, которая обожает свою работу и благодаря которой я могу теперь жить в своей новой квартире с полным спокойствием и уверенностью, что эта сделка была идеальной во всех отношениях.</p><p class="rv-full">Для продажи квартиры в Балашихе и покупки жилья в Москве обратилась за помощью к риелтору Ирине. Ирина сделала отличные фото в объявлении, на которое откликнулись многие желающие осмотреть квартиру. Благодаря профессионализму и умению строить диалог с людьми Ирине не составило большого труда найти покупателей. Документы на сделку были подготовлены молниеносно, сделка прошла быстро и очень комфортно. Так же прошла и сделка по покупке квартиры. <mark>Уложились в один месяц</mark>. Помимо профессиональных качеств хочу отметить характер Ирины. Это добрый, отзывчивый человек, готовый приложить максимум усилий во благо своего клиента, зачастую решая возникающие сопутствующие проблемы, которые не входят в ее прямые обязанности. Это человек с колоссальным терпением и тактом, благодаря которым Ирине удается решать вопросы с непростыми покупателями, стойко вынося на своих хрупких плечах их капризы и причуды. Одним словом, я очень рада, что моей сделкой занималась Ирина, которая обожает свою работу и благодаря которой я могу теперь жить в своей новой квартире с полным спокойствием и уверенностью, что эта сделка была идеальной во всех отношениях.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-144231181"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 144231181)</span></a></span></div></article>
+<article class="rv has-full" id="rv-126671814" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">25 мая 2025 · ID 126671814</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li></ul><div class="rv-body" id="rb-126671814"><p class="rv-prev">Сделка прошла четко и слаженно, все документы продавца были проверены, <mark>покупатели найдены в кротчайшие сроки</mark>! Фото квартиры для продажи сделаны на высшем качестве! Ирина может найти подход к самым требовательным и капризным людям! Всем рекомендую!</p><p class="rv-full">Хотим сказать большое спасибо Ирине за проведенную сделку по купли-продажи нашей квартиры! Нужно было продать нашу квартиру и приобрести нам другую! Сделка прошла четко и слаженно, все документы продавца были проверены, <mark>покупатели найдены в кротчайшие сроки</mark>! Фото квартиры для продажи сделаны на высшем качестве! Ирина может найти подход к самым требовательным и капризным людям! Всем рекомендую!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-126671814"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 126671814)</span></a></span></div></article>
+<article class="rv has-full" id="rv-18378400" data-tags="buy complex sell swap"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">27 апреля 2025 · ID 18378400</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Продажа и покупка</li></ul><div class="rv-body" id="rb-18378400"><p class="rv-prev">Благодаря еë работе, <mark>меньше чем за 2 месяца, мы продали, купили и получили ключи от нашей квартиры</mark>. Ирина работает по договору, соблюдает все условия и сроки, всегда была на связи и отвечала на все наши многочисленные вопросы, помогла собрать недостающие документы, которые были необходимы для продажи и покупки. Мы очень довольны еë работой и рекомендуем!</p><p class="rv-full">Хотели бы выразить благодарность Михайловой Ирине Рудольфовне за её помощь в одновременной продаже квартиры и покупке новой (вторичное жилье). Для продажи квартиры Ирина сделала очень качественные фотографии, видео, разместила объявления, организовала показы квартиры. Покупатель нашелся очень быстро и быстро вышли на сделку. Одновременно Ирина организовала нам большое количество просмотров понравившихся нам квартир, проверила юридическую чистоту квартиры. Благодаря еë работе, <mark>меньше чем за 2 месяца, мы продали, купили и получили ключи от нашей квартиры</mark>. Ирина работает по договору, соблюдает все условия и сроки, всегда была на связи и отвечала на все наши многочисленные вопросы, помогла собрать недостающие документы, которые были необходимы для продажи и покупки. Мы очень довольны еë работой и рекомендуем!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-18378400"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 18378400)</span></a></span></div></article>
+<article class="rv has-full" id="rv-145026115" data-tags="buy"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">6 октября 2026 · ID 145026115</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-145026115"><p class="rv-prev"><mark>Она полностью взяла на себя всю бумажную волокиту, проверку юридической чистоты объекта, подготовку договора и взаимодействие с другими участниками сделки</mark>. Для меня это стало огромным облегчением, ведь не пришлось переживать за правильность оформления документов и юридические тонкости. На самой сделке Ирина контролировала каждый шаг, от передачи денег до подписания финальных бумаг, уверенно отстаивая мои интересы как покупателя. Это специалист с большой буквы, которому можно полностью доверять. Искренне рекомендую Ирину всем, кто ищет надежного профессионала</p><p class="rv-full">Хочу выразить огромную благодарность Ирине за неоценимую помощь в покупке квартиры. Изначально весь этот процесс казался мне очень сложным , но благодаря ее профессионализму сделка прошла максимально гладко и спокойно. Ирина всегда была на связи, буквально двадцать четыре на семь, оперативно и понятно отвечала на любые вопросы и держала меня в курсе каждого этапа. <mark>Она полностью взяла на себя всю бумажную волокиту, проверку юридической чистоты объекта, подготовку договора и взаимодействие с другими участниками сделки</mark>. Для меня это стало огромным облегчением, ведь не пришлось переживать за правильность оформления документов и юридические тонкости. На самой сделке Ирина контролировала каждый шаг, от передачи денег до подписания финальных бумаг, уверенно отстаивая мои интересы как покупателя. Это специалист с большой буквы, которому можно полностью доверять. Искренне рекомендую Ирину всем, кто ищет надежного профессионала</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-145026115"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 145026115)</span></a></span></div></article>
 <article class="rv" id="rv-70082666" data-tags="buy"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">13 декабря 2025 · ID 70082666</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-70082666"><p class="rv-prev">Выражаю огромную благодарность Ирине за помощь в покупке жилья. Ирина - специалист высокого уровня, рекомендую! Благодаря ее внимательности и проницательности, <mark>она вывела недобросовестного продавца и защитила меня от возможных негативных последствий</mark>. Во втором финальном случае квартира и все документы были тщательно проверены, в т.ч. юридически, приняты необходимые меры для безопасной сделки. Ситуация на вторичном рынке сейчас неспокойная, было переживаетельно, но благодаря ее поддержке и профессионализму все прошло гладко.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-70082666"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 70082666)</span></a></span></div></article>
-<article class="rv has-full" id="rv-gordin" data-tags="buy"><header class="rv-top"><span class="av av-3" aria-hidden="true">В</span><div class="rv-who"><p class="nm">Владимир Г.</p><p class="sub">25 ноября 2025</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-gordin"><p class="rv-prev">… От выбора квартиры до полного завершения сделки <mark>прошло всего !5 дней!</mark> Отдельно мне понравились несколько важных моментов: - Уверенность и настойчивость. Если бы Ирина в нужный момент не настояла на том, чтобы остановить поиски и закрепить выбранный вариант, сделки бы не было. Именно в день оформления моей сделки, банкам сократили льготы по IT-ипотеке — мы буквально успели в последний вагон! - Проверенные специалисты. Очень помогла рекомендованная Ириной брокер — благодаря ей удалось ускорить процесс оформления. Сроки у меня были «вчера», банки давали отказы один за другим, и только с пятой попытки удалось получить одобрение. Без опыта брокера я бы не смог согласовать подачу не выписки НДФЛ, а справки о доходах по форме банка — и просто не прошёл бы по условиям ипотеки. - Очень приятное, человеческое отношение. На тот момент все свободные деньги я уже вложил в первоначальный взнос, и Ирина пошла мне навстречу — разрешила оплатить её услуги после сделки разнесенными платежами. Это сильно меня поддержало и отбило необходимости обременять себя ещё одним кредитом сразу после покупки. Отзыв пишу с задержкой, и сегодня Ирина уже стала нашим семейным риелтором. Мы начали оформлять ещё одну сделку и обсуждаем дальнейшие планы с недвижимостью. А приобретённая квартира уже за первые несколько недель выросла в цене — с 11 760 000 до 14 190 000 рублей (если сравнивать аналогичные варианты в этом же доме). Даже немного жалко делиться таким специалистом с другими ))) Ирина, мне искренне приятно, что судьба свела нас с Вами! Вы очень опытный профессионал своего дела и очень открытый, добрый и честный человек! Спасибо !огромное! за помощь в такой важной и непростой покупке — несмотря на сжатые сроки, оформление в последний день, череду отказов банков и ограниченный бюджет, у нас всё получилось! Я очень доволен покупкой — и без Вас её бы просто не было ♥ ! )))</p><p class="rv-full">В этом году я совершенно «вовремя» вспомнил, что срочно нужно оформлять IT-ипотеку. Посоветовался с несколькими знакомыми — и так вышел на Ирину. Редко когда рекомендации приходят сразу с разных сторон и очень положительные отзывы. Поэтому риелтора я выбирал недолго — и ни разу об этом не пожалел. Покупка квартиры для меня — непростое и волнительное дело: большие деньги, долгие обязательства, много эмоций и переживаний. Ирина стала тем специалистом, которому можно довериться: трезвый взгляд, профессиональный подход и способность помочь сделать правильный выбор в сжатые сроки, несмотря на мои большие внутренние сомнения/переживания. На неё действительно можно опереться по-человечески. От выбора квартиры до полного завершения сделки <mark>прошло всего !5 дней!</mark> Отдельно мне понравились несколько важных моментов: - Уверенность и настойчивость. Если бы Ирина в нужный момент не настояла на том, чтобы остановить поиски и закрепить выбранный вариант, сделки бы не было. Именно в день оформления моей сделки, банкам сократили льготы по IT-ипотеке — мы буквально успели в последний вагон! - Проверенные специалисты. Очень помогла рекомендованная Ириной брокер — благодаря ей удалось ускорить процесс оформления. Сроки у меня были «вчера», банки давали отказы один за другим, и только с пятой попытки удалось получить одобрение. Без опыта брокера я бы не смог согласовать подачу не выписки НДФЛ, а справки о доходах по форме банка — и просто не прошёл бы по условиям ипотеки. - Очень приятное, человеческое отношение. На тот момент все свободные деньги я уже вложил в первоначальный взнос, и Ирина пошла мне навстречу — разрешила оплатить её услуги после сделки разнесенными платежами. Это сильно меня поддержало и отбило необходимости обременять себя ещё одним кредитом сразу после покупки. Отзыв пишу с задержкой, и сегодня Ирина уже стала нашим семейным риелтором. Мы начали оформлять ещё одну сделку и обсуждаем дальнейшие планы с недвижимостью. А приобретённая квартира уже за первые несколько недель выросла в цене — с 11 760 000 до 14 190 000 рублей (если сравнивать аналогичные варианты в этом же доме). Даже немного жалко делиться таким специалистом с другими ))) Ирина, мне искренне приятно, что судьба свела нас с Вами! Вы очень опытный профессионал своего дела и очень открытый, добрый и честный человек! Спасибо !огромное! за помощь в такой важной и непростой покупке — несмотря на сжатые сроки, оформление в последний день, череду отказов банков и ограниченный бюджет, у нас всё получилось! Я очень доволен покупкой — и без Вас её бы просто не было ♥ ! )))</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-gordin"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан)</span></a></span></div></article>
+<article class="rv has-full" id="rv-gordin" data-tags="buy"><header class="rv-top"><span class="av av-3" aria-hidden="true">В</span><div class="rv-who"><p class="nm">Владимир Г.</p><p class="sub">25 ноября 2025</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-gordin"><p class="rv-prev">От выбора квартиры до полного завершения сделки <mark>прошло всего !5 дней!</mark> Отдельно мне понравились несколько важных моментов: - Уверенность и настойчивость. Если бы Ирина в нужный момент не настояла на том, чтобы остановить поиски и закрепить выбранный вариант, сделки бы не было. Именно в день оформления моей сделки, банкам сократили льготы по IT-ипотеке — мы буквально успели в последний вагон! - Проверенные специалисты. Очень помогла рекомендованная Ириной брокер — благодаря ей удалось ускорить процесс оформления. Сроки у меня были «вчера», банки давали отказы один за другим, и только с пятой попытки удалось получить одобрение. Без опыта брокера я бы не смог согласовать подачу не выписки НДФЛ, а справки о доходах по форме банка — и просто не прошёл бы по условиям ипотеки. - Очень приятное, человеческое отношение. На тот момент все свободные деньги я уже вложил в первоначальный взнос, и Ирина пошла мне навстречу — разрешила оплатить её услуги после сделки разнесенными платежами. Это сильно меня поддержало и отбило необходимости обременять себя ещё одним кредитом сразу после покупки. Отзыв пишу с задержкой, и сегодня Ирина уже стала нашим семейным риелтором. Мы начали оформлять ещё одну сделку и обсуждаем дальнейшие планы с недвижимостью. А приобретённая квартира уже за первые несколько недель выросла в цене — с 11 760 000 до 14 190 000 рублей (если сравнивать аналогичные варианты в этом же доме). Даже немного жалко делиться таким специалистом с другими ))) Ирина, мне искренне приятно, что судьба свела нас с Вами! Вы очень опытный профессионал своего дела и очень открытый, добрый и честный человек! Спасибо !огромное! за помощь в такой важной и непростой покупке — несмотря на сжатые сроки, оформление в последний день, череду отказов банков и ограниченный бюджет, у нас всё получилось! Я очень доволен покупкой — и без Вас её бы просто не было ♥ ! )))</p><p class="rv-full">В этом году я совершенно «вовремя» вспомнил, что срочно нужно оформлять IT-ипотеку. Посоветовался с несколькими знакомыми — и так вышел на Ирину. Редко когда рекомендации приходят сразу с разных сторон и очень положительные отзывы. Поэтому риелтора я выбирал недолго — и ни разу об этом не пожалел. Покупка квартиры для меня — непростое и волнительное дело: большие деньги, долгие обязательства, много эмоций и переживаний. Ирина стала тем специалистом, которому можно довериться: трезвый взгляд, профессиональный подход и способность помочь сделать правильный выбор в сжатые сроки, несмотря на мои большие внутренние сомнения/переживания. На неё действительно можно опереться по-человечески. От выбора квартиры до полного завершения сделки <mark>прошло всего !5 дней!</mark> Отдельно мне понравились несколько важных моментов: - Уверенность и настойчивость. Если бы Ирина в нужный момент не настояла на том, чтобы остановить поиски и закрепить выбранный вариант, сделки бы не было. Именно в день оформления моей сделки, банкам сократили льготы по IT-ипотеке — мы буквально успели в последний вагон! - Проверенные специалисты. Очень помогла рекомендованная Ириной брокер — благодаря ей удалось ускорить процесс оформления. Сроки у меня были «вчера», банки давали отказы один за другим, и только с пятой попытки удалось получить одобрение. Без опыта брокера я бы не смог согласовать подачу не выписки НДФЛ, а справки о доходах по форме банка — и просто не прошёл бы по условиям ипотеки. - Очень приятное, человеческое отношение. На тот момент все свободные деньги я уже вложил в первоначальный взнос, и Ирина пошла мне навстречу — разрешила оплатить её услуги после сделки разнесенными платежами. Это сильно меня поддержало и отбило необходимости обременять себя ещё одним кредитом сразу после покупки. Отзыв пишу с задержкой, и сегодня Ирина уже стала нашим семейным риелтором. Мы начали оформлять ещё одну сделку и обсуждаем дальнейшие планы с недвижимостью. А приобретённая квартира уже за первые несколько недель выросла в цене — с 11 760 000 до 14 190 000 рублей (если сравнивать аналогичные варианты в этом же доме). Даже немного жалко делиться таким специалистом с другими ))) Ирина, мне искренне приятно, что судьба свела нас с Вами! Вы очень опытный профессионал своего дела и очень открытый, добрый и честный человек! Спасибо !огромное! за помощь в такой важной и непростой покупке — несмотря на сжатые сроки, оформление в последний день, череду отказов банков и ограниченный бюджет, у нас всё получилось! Я очень доволен покупкой — и без Вас её бы просто не было ♥ ! )))</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-gordin"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан)</span></a></span></div></article>
 <article class="rv" id="rv-104966620" data-tags="buy"><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">18 ноября 2025 · ID 104966620</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-104966620"><p class="rv-prev">Большое спасибо Ирине Рудольфовне в помощи при покупке квартиры. Обратились во времена высокой ставки, Ирина и ее коллега <mark>помогли подобрать банк с наименьшими процентами</mark>, затем долго искали подходящую квартиру и наконец нашли идеальную. Очень переживали так как это была покупка нашей первой квартиры, но Ирина нас успокаивала и объясняла все моменты по покупке. Сейчас уже прошло 5 месяцев после сделки и заселения. Очень рекомендую обращаться, мы остались очень довольны!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-104966620"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 104966620)</span></a></span></div></article>
 <article class="rv" id="rv-145021867" data-tags="buy"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">6 октября 2026 · ID 145021867</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-145021867"><p class="rv-prev">Обратился к Ирине с целью покупки квартиры. В короткий мне были предложены варианты квартир с фото и комментариями. После моего выбора и началом сделки я был тронут профессионализмом и человечностью риэлтора. <mark>С ее стороны все было организовано честно и прозрачно</mark>. В короткий срок все документы были подготовлены и сделка по покупке жилья прошла быстро и без проблем. Спасибо Вам за честность и заботу о клиентах.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-145021867"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 145021867)</span></a></span></div></article>
 <article class="rv" id="rv-107186567" data-tags="buy"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">31 мая 2026 · ID 107186567</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-107186567"><p class="rv-prev">Благодарим Ирину за помощь в покупке недвижимости, за грамотный подход к выбору квартиры,<mark>за хорошее юридическое сопровождение</mark>.. Мы остались очень довольны👍 всем рекомендуем, не пожалеете!!!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-107186567"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 107186567)</span></a></span></div></article>
-<article class="rv has-full" id="rv-102923190" data-tags="buy"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">3 декабря 2024 · ID 102923190</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-102923190"><p class="rv-prev">… Благодаря её рекомендациям и советам, <mark>мы смогли убедиться в надёжности нашего будущего жилья</mark>. Обязательно будем рекомендовать Ирину своим знакомым и в будущем сами обратимся снова. Спасибо за ваш труд!</p><p class="rv-full">Хочу выразить искреннюю благодарность Ирине за её высокий профессионализм и помощь в проверке нашей квартиры. Её экспертность и лёгкость в общении сделали весь процесс приятным и удобным. Благодаря её рекомендациям и советам, <mark>мы смогли убедиться в надёжности нашего будущего жилья</mark>. Обязательно будем рекомендовать Ирину своим знакомым и в будущем сами обратимся снова. Спасибо за ваш труд!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-102923190"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 102923190)</span></a></span></div></article>
+<article class="rv has-full" id="rv-102923190" data-tags="buy"><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">3 декабря 2024 · ID 102923190</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-102923190"><p class="rv-prev">Благодаря её рекомендациям и советам, <mark>мы смогли убедиться в надёжности нашего будущего жилья</mark>. Обязательно будем рекомендовать Ирину своим знакомым и в будущем сами обратимся снова. Спасибо за ваш труд!</p><p class="rv-full">Хочу выразить искреннюю благодарность Ирине за её высокий профессионализм и помощь в проверке нашей квартиры. Её экспертность и лёгкость в общении сделали весь процесс приятным и удобным. Благодаря её рекомендациям и советам, <mark>мы смогли убедиться в надёжности нашего будущего жилья</mark>. Обязательно будем рекомендовать Ирину своим знакомым и в будущем сами обратимся снова. Спасибо за ваш труд!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-102923190"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 102923190)</span></a></span></div></article>
 <article class="rv" id="rv-ionov" data-tags="buy"><header class="rv-top"><span class="av av-4" aria-hidden="true">Д</span><div class="rv-who"><p class="nm">Дмитрий И.</p><p class="sub">14 июля 2024</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-ionov"><p class="rv-prev">Запоздалый отзыв. Хороший и грамотный специалист. <mark>Вёл ипотечную сделку от начала и до конца</mark>. Так же и помогала решать вопросы уже после сделки. Ирина, большое спасибо!!!! Сделка декабрь 2023</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-ionov"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан)</span></a></span></div></article>
 <article class="rv" id="rv-96175157" data-tags="buy"><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">13 декабря 2023 · ID 96175157</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-96175157"><p class="rv-prev">Выражаю благодарность за качественную работу эксперту по недвижимости Михайловой Ирине Рудольфовне. <mark>Сделка проведена полностью "под ключ"</mark>. Все организовано четко, качественно и в срок. Мне оказали консультативную помощь, проверили квартиру и Продавца на юридическую чистоту, подготовили проекты документов, организовали сделку. Ирина очень большая молодец! Рекомендую!!!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-96175157"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 96175157)</span></a></span></div></article>
 <article class="rv" id="rv-48219496" data-tags="buy"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">14 апреля 2022 · ID 48219496</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Покупка</li></ul><div class="rv-body" id="rb-48219496"><p class="rv-prev">Ирина очень грамотно быстро подобрала варианты,<mark>она умеет точно определить,то что вы хотите</mark>.это лучший риэлтор,которого я когда либо встречала.она профессионал,который любит свое дело и помогает своим клиентам все сделать четко, правильно,выгодно. я каждое утро просыпаюсь и благодарю этого человека и желаю ей здоровья за ее труд. Ира, ты лучшая!!!!!!</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-48219496"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 48219496)</span></a></span></div></article>
-</div><div class="more-row"><button type="button" class="more" data-more><span class="more-t"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="more-note"></p></div></div></section>
-<section class="part band-sand" id="otzyvy-other" data-part data-n="3" aria-labelledby="ph-other"><div class="wrap"><div class="part-h"><div><p class="kicker">В целом</p><h3 class="ph" id="ph-other">О работе со мной</h3><p class="pd">Отзывы без привязки к одному типу сделки, отзыв об аренде и отзыв коллеги-риелтора.</p></div></div><div class="cards">
-<article class="rv has-full" id="rv-136979578" data-tags=""><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">17 ноября 2025 · ID 136979578</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-136979578"><p class="rv-prev">… <mark>Можно было спокойно выдохнуть и не нервничать</mark>, потому что все проходило идеально. Даже после завершения сделки к Ирине всегда можно обратиться и она никогда не откажет в помощи. Я от всей души рекомендую Ирину, как специалиста в своей сфере и как хорошего человека. Безумно счастлива, что обратилась к ней и все у нас сложилось наипрекраснейшим образом.</p><p class="rv-full">Если бы можно было поставить оценку 10, то я не задумываясь ее поставила. Ирина прекрасный риелтор и не менее прекрасный человек. На протяжении всей сделки она была на связи, помогала, подсказывала, общалась с покупателями и продавцами. <mark>Можно было спокойно выдохнуть и не нервничать</mark>, потому что все проходило идеально. Даже после завершения сделки к Ирине всегда можно обратиться и она никогда не откажет в помощи. Я от всей души рекомендую Ирину, как специалиста в своей сфере и как хорошего человека. Безумно счастлива, что обратилась к ней и все у нас сложилось наипрекраснейшим образом.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-136979578"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 136979578)</span></a></span></div></article>
+<article class="rv has-full" id="rv-136979578" data-tags=""><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">17 ноября 2025 · ID 136979578</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-136979578"><p class="rv-prev"><mark>Можно было спокойно выдохнуть и не нервничать</mark>, потому что все проходило идеально. Даже после завершения сделки к Ирине всегда можно обратиться и она никогда не откажет в помощи. Я от всей души рекомендую Ирину, как специалиста в своей сфере и как хорошего человека. Безумно счастлива, что обратилась к ней и все у нас сложилось наипрекраснейшим образом.</p><p class="rv-full">Если бы можно было поставить оценку 10, то я не задумываясь ее поставила. Ирина прекрасный риелтор и не менее прекрасный человек. На протяжении всей сделки она была на связи, помогала, подсказывала, общалась с покупателями и продавцами. <mark>Можно было спокойно выдохнуть и не нервничать</mark>, потому что все проходило идеально. Даже после завершения сделки к Ирине всегда можно обратиться и она никогда не откажет в помощи. Я от всей души рекомендую Ирину, как специалиста в своей сфере и как хорошего человека. Безумно счастлива, что обратилась к ней и все у нас сложилось наипрекраснейшим образом.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-136979578"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 136979578)</span></a></span></div></article>
 <article class="rv" id="rv-12718845" data-tags=""><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">2 декабря 2025 · ID 12718845</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-12718845"><p class="rv-prev">Хочу поблагодарить Ирину Рудольфовну, за профессионально сделанную работу, за супер человеческий подход. <mark>Ирина настоящий профессионал</mark>. Но помимо профессионализма, это очень порядочный и душевный человек. Мы с супругой благодарны судьбе, что повстречали на своем пути такого человека и такого риэлтора.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-12718845"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 12718845)</span></a></span></div></article>
 <article class="rv" id="rv-71801382" data-tags=""><header class="rv-top"><span class="av av-3 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">2 декабря 2025 · ID 71801382</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-71801382"><p class="rv-prev">Профессионал с большой буквы 👍🏼выполняет работу с большой энергией и любовью, <mark>очень дотошно все проверяет и контролирует</mark>, можно смело доверять 🤍</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-71801382"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 71801382)</span></a></span></div></article>
 <article class="rv" id="rv-107518657" data-tags=""><header class="rv-top"><span class="av av-4 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">9 августа 2026 · ID 107518657</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-107518657"><p class="rv-prev">Ирина, спасибо большое за ваш профессионализм. <mark>Всё было выполнено на высшем уровне</mark>. С вами приятно было работать. Вы замечательный человек, профессионал своего дела. В дальнейшем буду обращаться только к вам.</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-107518657"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 107518657)</span></a></span></div></article>
@@ -486,7 +862,13 @@ details .ans p+p{margin-top:10px}
 <article class="rv" id="rv-102825053" data-tags=""><header class="rv-top"><span class="av av-1 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">7 июля 2023 · ID 102825053</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-102825053"><p class="rv-prev">Ирина очень грамотный знаток своего дела.Мне повезло с ней столкнуться совершенно случайно,но я очень даже рад этой встрече.<mark>Её рекомендации существенно сэкономили наш семейный бюджет</mark>.Спасибо Ирина Михайловна.Рекомендую👍</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-102825053"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 102825053)</span></a></span></div></article>
 <article class="rv" id="rv-123314995" data-tags="rent"><header class="rv-top"><span class="av av-2 anon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#user"/></svg></span><div class="rv-who"><p class="nm">Клиент Циана</p><p class="sub">1 сентября 2025 · ID 123314995</p></div><span class="plat">Циан</span></header><ul class="tags"><li>Аренда</li></ul><div class="rv-body" id="rb-123314995"><p class="rv-prev">Очень Благодарен Ирине за помощь! Профессионал в своем деле, <mark>сдавали квартиру по приличной цене в центре Москвы</mark>, Ирина очень ответственно подошла к подбору жильцов и своей работе вообщем! Всем рекомендую, отказался от всех своих старых риэлторов и не ошибся! Спасибо Вам Огромное! И хочу отметить, что Ирина прекрасный человек и очень приятно было с ней общаться)</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-123314995"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан · ID 123314995)</span></a></span></div></article>
 <article class="rv" id="rv-petrovich" data-tags=""><header class="rv-top"><span class="av av-3" aria-hidden="true">U</span><div class="rv-who"><p class="nm">Ulia P.</p><p class="sub">10 декабря 2023</p></div><span class="plat">Циан</span></header><div class="rv-body" id="rb-petrovich"><p class="rv-prev">работаю с Ириной это давно. <mark>очень все чётко и професионал</mark> но</p></div><div class="rv-act"><button class="rv-more" type="button" aria-expanded="false" aria-controls="rb-petrovich"><span>Читать полностью</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="src"><a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Проверить на Циане ↗<span class="sr"> (отзыв Циан)</span></a></span></div></article>
-</div><div class="more-row"><button type="button" class="more" data-more><span class="more-t"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="more-note"></p></div></div></section>
+    </div>
+    <div class="more-row">
+      <button type="button" class="more" data-more><span class="more-t"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="more-note"></p>
+    </div>
+  </div>
+</section>
 
   <div class="wrap rev-endwrap">
     <div class="rev-end">
@@ -509,7 +891,7 @@ details .ans p+p{margin-top:10px}
 </section>
 
 <!-- ГЛАВНЫЕ СТРАХИ -->
-<section class="trust" aria-label="Главные вопросы собственников">
+<section class="trust" id="strakhi" aria-label="Главные вопросы собственников">
   <div class="wrap trust-grid">
     <article class="tcard t1">
       <p class="kicker">Главный страх при продаже</p>
@@ -573,17 +955,31 @@ details .ans p+p{margin-top:10px}
         <p class="what"><b>Что вы получите после разговора</b>Оценку недвижимости, рыночную цену и понятный маршрут продажи.</p>
         <p class="what"><b>Нужно и продать, и купить</b>Согласую обе сделки между собой. Примеры есть в отзывах.</p>
       </article>
+      <article class="svc a" id="usluga-pokupka">
+        <p class="kicker">Подбор и сопровождение</p>
+        <h3>Покупка</h3>
+        <p>По критериям клиента подбираем, сторговываем с цены комиссию и покупаем очень выгодные объекты.</p>
+        <ul>
+          <li>подбираем объекты по вашим критериям и бюджету</li>
+          <li>проверяем юридическую чистоту и риски</li>
+          <li>торгуемся с продавцом и сторговываем с цены комиссию</li>
+          <li>сопровождаем переговоры, расчёты и выход на сделку</li>
+        </ul>
+        <p class="what"><b>Пример из практики</b>Как мы подобрали и провели сделку с выгодным стартом — смотрите в <a href="#case-start-flip" data-go-case="case-start-flip">кейсе с квартирой за 3,5 млн ₽ →</a></p>
+        <p class="what"><b>Что вы получите после разговора</b>Понятный план подбора, ориентиры по цене и торгу и безопасную покупку.</p>
+      </article>
       <article class="svc b">
         <p class="kicker">Сложные объекты</p>
         <h3>Продажа с залогом, долгами и ограничениями</h3>
         <p>Залог, задолженность, аресты, запреты на регистрационные действия. Юридическую часть веду вместе с юристом, с приставами работаю сама.</p>
         <p class="what"><b>Что вы получите после разговора</b>На первой встрече смотрим, где какие долги, в каком банке, что с приставами и как лучше всё закрывать. Стратегия подбирается индивидуально.</p>
+        <p class="what"><b>Кейсы по сложным сделкам</b>Смотрите разборы в <a href="#case-malakhovka" data-go-case="case-malakhovka">кейсе в Малаховке (19 дней до сделки, 8,99 млн ₽) →</a> и <a href="#case-psb-11m" data-go-case="case-psb-11m">кейсе с долгом 11 млн ₽ и арестом пристава →</a></p>
         <p class="limits">Я работаю с такими объектами до проведения торгов. Участие в торгах, покупку с торгов и сопровождение уже проведённого аукциона я не предлагаю. Бывают ситуации, когда помочь уже нельзя, поэтому лучше позвонить пораньше. Можно обращаться, находясь за границей: порядок участия собственника обсуждаем отдельно.</p>
       </article>
     </div>
-    <div class="price">
-      <strong>от <span>150 000</span> ₽ за сделку</strong>
-      <p>Вознаграждение оплачивается, когда вы получили деньги по сделке. Первая консультация бесплатная.</p>
+    <div class="price result-banner">
+      <strong>Всегда довожу <span>до результата</span></strong>
+      <p>Беру организацию и переговоры на себя, чтобы довести сделку до логичного завершения. Оплата вознаграждения — когда вы получили деньги по сделке. Первая консультация бесплатная.</p>
     </div>
   </div>
 </section>
@@ -616,8 +1012,7 @@ details .ans p+p{margin-top:10px}
       <details><summary>Сколько это стоит?</summary><div class="ans"><p>От 150 000 ₽ за сделку. Вознаграждение оплачивается, когда вы получили деньги. Первая консультация бесплатная.</p></div></details>
       <details><summary>Квартира в залоге и есть долги. Можно ли её продать?</summary><div class="ans"><p>Это зависит от документов и стадии процесса. На первой встрече я смотрю, где какие долги, в каком банке, что с приставами и как лучше их закрывать. Сроки по залоговым объектам называю только после звонка.</p><p>Бывают ситуации, когда помочь уже нельзя, поэтому лучше не тянуть. Звонить не стыдно, никто не осудит.</p></div></details>
       <details><summary>А если торги уже назначены?</summary><div class="ans"><p>Я работаю с такими объектами до проведения торгов. Участие в торгах, покупку с торгов и сопровождение уже проведённого аукциона я не предлагаю. Успеть ли продать в оставшееся время, можно понять только по документам и датам, поэтому лучше позвонить.</p></div></details>
-      <details><summary>Вы скажете, если продавать не стоит?</summary><div class="ans"><p>Да. Если продажа не в ваших интересах, я скажу об этом прямо. Другой путь, включая банкротство, оценивается индивидуально.</p></div></details>
-      <details><summary>Я за границей. Можно обратиться?</summary><div class="ans"><p>Да. Как именно будет участвовать собственник, обсуждаем отдельно, после первого разговора.</p></div></details>
+            <details><summary>Я за границей. Можно обратиться?</summary><div class="ans"><p>Да. Как именно будет участвовать собственник, обсуждаем отдельно, после первого разговора.</p></div></details>
       <details><summary>Когда можно звонить?</summary><div class="ans"><p>Я отвечаю до 22:00. Если не смогла взять трубку, перезвоню в ближайшее время.</p></div></details>
     </div>
   </div>
@@ -634,7 +1029,7 @@ details .ans p+p{margin-top:10px}
       <div class="cta"><a class="btn" href="tel:+79202353565"><svg aria-hidden="true"><use href="#phone"/></svg>Позвонить мне</a></div>
       <p class="hours">Я отвечаю до 22:00. Если не взяла трубку, перезвоню в ближайшее время.</p>
       <p class="hours maxnote">Можно написать мне и в MAX, по этому же номеру.</p>
-      <!-- Ссылки на VK и MAX добавить сюда, когда будут получены. Пока не выводим. -->
+      
     </div>
     <div class="contact-r"><img src="img/irina-contact.jpg" width="820" height="1046" alt="Ирина Михайлова улыбается"></div>
   </div>
@@ -643,7 +1038,7 @@ details .ans p+p{margin-top:10px}
 
 <footer class="foot">
   <div class="wrap">
-    <p>Михайлова Ирина Рудольфовна, самозанятая. <!-- ИНН добавить после получения -->Москва и Московская область.</p>
+    <p>Михайлова Ирина Рудольфовна, самозанятая. Москва и Московская область.</p>
     <p>Рейтинги: Циан 5,0 и Домклик 5 из 5 по данным площадок на 11 ноября 2026 года. Отзывы опубликованы с площадок <a href="https://www.cian.ru/agents/68534629/" target="_blank" rel="noopener">Циан</a> и <a href="https://agencies.domclick.ru/agent/8252518/reviews" target="_blank" rel="noopener">Домклик</a>; результаты в них относятся к конкретным сделкам.</p>
   </div>
 </footer>
@@ -653,7 +1048,7 @@ details .ans p+p{margin-top:10px}
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var FIRST = 3, STEP = 6;
+  var FIRST = 6, STEP = 6;
   var parts = [].slice.call(document.querySelectorAll('[data-part]'));
   var chips = [].slice.call(document.querySelectorAll('.fchip'));
   
@@ -715,6 +1110,154 @@ details .ans p+p{margin-top:10px}
       var first = p.querySelectorAll('.rv:not([hidden])')[Math.min(STEP, p.querySelectorAll('.rv:not([hidden])').length - 1) * 0];
     });
   });
+  var caseCards = [].slice.call(document.querySelectorAll('.case-card'));
+  var caseChips = [].slice.call(document.querySelectorAll('.cfchip'));
+  var caseTrack = document.getElementById('caseTrack');
+  var casePrev = document.getElementById('casePrev');
+  var caseNext = document.getElementById('caseNext');
+  var casePos = document.getElementById('casePos');
+  var caseFilter = 'all';
+
+  function visibleCaseList(){
+    return caseCards.filter(function(cc){ return !cc.hidden; });
+  }
+
+  var caseDots = document.getElementById('caseDots');
+
+  function updateCaseControls(){
+    if(!caseTrack) return;
+    var vis = visibleCaseList();
+    if(!vis.length){
+      if(casePos) casePos.textContent = '0';
+      if(caseDots) caseDots.innerHTML = '';
+      if(casePrev) casePrev.disabled = true;
+      if(caseNext) caseNext.disabled = true;
+      return;
+    }
+    var trackRect = caseTrack.getBoundingClientRect();
+    var activeIdx = 0;
+    var minDist = Infinity;
+    vis.forEach(function(cc, idx){
+      var dist = Math.abs(cc.getBoundingClientRect().left - trackRect.left);
+      if(dist < minDist){ minDist = dist; activeIdx = idx; }
+    });
+    if(caseDots){
+      caseDots.innerHTML = '';
+      vis.forEach(function(cc, idx){
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'case-dot';
+        dot.setAttribute('aria-label', 'Кейс ' + (idx + 1));
+        if(idx === activeIdx) dot.setAttribute('aria-current', 'true');
+        dot.addEventListener('click', function(){
+          caseTrack.scrollTo({left: cc.offsetLeft - caseTrack.offsetLeft, behavior: reduce ? 'auto' : 'smooth'});
+        });
+        caseDots.appendChild(dot);
+      });
+    }
+    if(casePos) casePos.textContent = (activeIdx + 1) + ' из ' + vis.length;
+    if(casePrev) casePrev.disabled = activeIdx <= 0;
+    if(caseNext) caseNext.disabled = activeIdx >= vis.length - 1;
+  }
+
+  function filterCases(){
+    caseCards.forEach(function(cc){
+      var tags = cc.getAttribute('data-tags') || '';
+      var ok = caseFilter === 'all' || (' ' + tags + ' ').indexOf(' ' + caseFilter + ' ') > -1;
+      cc.hidden = !ok;
+    });
+    if(caseTrack) caseTrack.scrollTo({left: 0, behavior: 'auto'});
+    updateCaseControls();
+  }
+
+  document.querySelectorAll('.case-card').forEach(function(card){
+    var extra = card.querySelector('.case-story-extra');
+    var btn = card.querySelector('.case-expand');
+    if(!btn) return;
+    var extraLen = extra ? extra.textContent.replace(/\s+/g, ' ').trim().length : 0;
+    if(!extra || extraLen < 160){
+      if(extra) extra.style.display = 'grid';
+      btn.hidden = true;
+      return;
+    }
+    btn.addEventListener('click', function(){
+      var open = !card.classList.contains('is-expanded');
+      card.classList.toggle('is-expanded', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var span = btn.querySelector('span');
+      if(span) span.textContent = open ? 'Свернуть' : 'Читать полностью';
+    });
+  });
+
+  function goToCaseById(id){
+    var target = document.getElementById(id);
+    if(!target || !caseTrack) return;
+    if(target.hidden){
+      caseFilter = 'all';
+      caseChips.forEach(function(x){ x.setAttribute('aria-pressed', x.getAttribute('data-cf') === 'all' ? 'true' : 'false'); });
+      filterCases();
+    }
+    caseCards.forEach(function(c){ c.classList.remove('is-active-target'); });
+    target.classList.add('is-active-target');
+    var left = target.offsetLeft - caseTrack.offsetLeft;
+    caseTrack.scrollTo({left: left, behavior: reduce ? 'auto' : 'smooth'});
+    setTimeout(updateCaseControls, 350);
+  }
+
+  caseChips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      caseFilter = ch.getAttribute('data-cf');
+      caseChips.forEach(function(x){ x.setAttribute('aria-pressed', x === ch ? 'true' : 'false'); });
+      filterCases();
+    });
+  });
+
+  if(casePrev){
+    casePrev.addEventListener('click', function(){
+      var vis = visibleCaseList();
+      if(!vis.length) return;
+      var trackRect = caseTrack.getBoundingClientRect();
+      var activeIdx = 0, minDist = Infinity;
+      vis.forEach(function(cc, idx){
+        var dist = Math.abs(cc.getBoundingClientRect().left - trackRect.left);
+        if(dist < minDist){ minDist = dist; activeIdx = idx; }
+      });
+      var prev = vis[Math.max(0, activeIdx - 1)];
+      caseTrack.scrollTo({left: prev.offsetLeft - caseTrack.offsetLeft, behavior: reduce ? 'auto' : 'smooth'});
+    });
+  }
+
+  if(caseNext){
+    caseNext.addEventListener('click', function(){
+      var vis = visibleCaseList();
+      if(!vis.length) return;
+      var trackRect = caseTrack.getBoundingClientRect();
+      var activeIdx = 0, minDist = Infinity;
+      vis.forEach(function(cc, idx){
+        var dist = Math.abs(cc.getBoundingClientRect().left - trackRect.left);
+        if(dist < minDist){ minDist = dist; activeIdx = idx; }
+      });
+      var nxt = vis[Math.min(vis.length - 1, activeIdx + 1)];
+      caseTrack.scrollTo({left: nxt.offsetLeft - caseTrack.offsetLeft, behavior: reduce ? 'auto' : 'smooth'});
+    });
+  }
+
+  if(caseTrack){
+    var st;
+    caseTrack.addEventListener('scroll', function(){
+      clearTimeout(st);
+      st = setTimeout(updateCaseControls, 60);
+    }, {passive:true});
+  }
+
+  document.querySelectorAll('[data-go-case]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      goToCaseById(btn.getAttribute('data-go-case'));
+    });
+  });
+
+  filterCases();
+
   chips.forEach(function(ch){
     ch.addEventListener('click', function(){
       filter = ch.getAttribute('data-f');
@@ -724,6 +1267,20 @@ details .ans p+p{margin-top:10px}
     });
   });
   render();
+
+
+  function openCaseFromHash(){
+    var h = location.hash;
+    if(!h || h.indexOf('#case-') !== 0) return;
+    var id = h.slice(1);
+    var target = document.getElementById(id);
+    if(!target) return;
+    var sec = document.getElementById('keisy');
+    if(sec) sec.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+    setTimeout(function(){ goToCaseById(id); }, reduce ? 0 : 280);
+  }
+  window.addEventListener('hashchange', openCaseFromHash);
+  if(location.hash && location.hash.indexOf('#case-') === 0) setTimeout(openCaseFromHash, 80);
 
   function openFromHash(){
     var h = location.hash;
